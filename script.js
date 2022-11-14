@@ -75,6 +75,20 @@ class backButton {
 	}
 }
 
+      class ball{
+	constructor(x, y, w, r, g, b) {
+		this.posX=x
+		this.posY=y
+		this.w=w
+		this.Color=color(r,g,b)
+	}
+
+update() {
+	  fill(this.Color)
+		circle(this.posX,this.posY,this.w)
+	}
+}
+
 function backDrop(){
   rectMode(CENTER)
 fill(207, 228, 230)
@@ -85,7 +99,6 @@ rect(width/2, height/2, 600, 500)
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(10, 10, 50);
-  
 menu = 0
 
   currentStatus = true
@@ -120,9 +133,21 @@ menu = 0
 
   //home button on both easy, normal, hard stages of 1 player and 2 players
   home = new button (width/2 - 80, height/1.25, 120, 30, "Home", 237, 126, 14)
+
+    //face
+	face = new ball(width/1.45, height/1.15, 70, 247,250,72)
+
+  //left eye
+  leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
+  //right eye
+   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
 }
 
 function resetVariables(){
+f = 0
+  
+rightGuess = 0
+  
   //time variables for easy, normal and hard stages on 1 player
   easyTotalTime = 300
   easyRemainTime = easyTotalTime
@@ -134,6 +159,58 @@ function resetVariables(){
 
   //score variables
   topScore_time = 100
+
+  //phrases for easy, normal and hard stages in 1 player
+  easyPhrasesOne = ["space", "biology", "chemistry", "atmosphere"]
+  easyIndexOne = Math.floor(random(0, easyPhrasesOne.length))
+  easyCurPhraseOne = easyPhrasesOne[easyIndexOne]
+  easyGuessOne = []
+  easyWrongGuessesOne = []
+  for (let e = 0; e < easyCurPhraseOne.length; e++){
+    easyGuessOne.push(easyCurPhraseOne[e] == " " ? " " : "_")
+  }
+  normalPhrasesOne = ["forest", "clear", "trash", "cat"]
+  normalIndexOne = Math.floor(random(0, normalPhrasesOne.length))
+  normalCurPhraseOne = normalPhrasesOne[normalIndexOne]
+  normalGuessOne = []
+  normalWrongGuessesOne = []
+  for (let e = 0; e < normalCurPhraseOne.length; e++){
+    normalGuessOne.push(normalCurPhraseOne[e] == " " ? " " : "_")
+  }
+  hardPhrasesOne = ["space", "biology", "chemistry", "atmosphere"]
+  hardIndexOne = Math.floor(random(0, hardPhrasesOne.length))
+  hardCurPhraseOne = hardPhrasesOne[hardIndexOne]
+  hardGuessOne = []
+  hardWrongGuessesOne = []
+  for (let e = 0; e < hardCurPhraseOne.length; e++){
+    hardGuessOne.push(hardCurPhraseOne[e] == " " ? " " : "_")
+  }
+
+  //phrases for easy, normal and hard stages in 2 players
+  easyPhrasesTwo = ["space", "biology", "chemistry", "atmosphere"]
+  easyIndexTwo = Math.floor(random(0, easyPhrasesTwo.length))
+  easyCurPhraseTwo = easyPhrasesTwo[easyIndexTwo]
+  easyGuessTwo = []
+  easyWrongGuessesTwo = []
+  for (let e = 0; e < easyCurPhraseTwo.length; e++){
+    easyGuessTwo.push(easyCurPhraseTwo[e] == " " ? " " : "_")
+  }
+  normalPhrasesTwo = ["space", "biology", "chemistry", "atmosphere"]
+  normalIndexTwo = Math.floor(random(0, normalPhrasesTwo.length))
+  normalCurPhraseTwo = normalPhrasesTwo[normalIndexTwo]
+  normalGuessTwo = []
+  normalWrongGuessesTwo = []
+  for (let e = 0; e < normalCurPhraseTwo.length; e++){
+    normalGuessTwo.push(normalCurPhraseTwo[e] == " " ? " " : "_")
+  }
+  hardPhrasesTwo = ["space", "biology", "chemistry", "atmosphere"]
+  hardIndexTwo = Math.floor(random(0, hardPhrasesTwo.length))
+  hardCurPhraseTwo = hardPhrasesTwo[hardIndexTwo]
+  hardGuessTwo = []
+  hardWrongGuessesTwo = []
+  for (let e = 0; e < hardCurPhraseTwo.length; e++){
+    hardGuessTwo.push(hardCurPhraseTwo[e] == " " ? " " : "_")
+  }
 }
 
 function easyOnePlayer(){
@@ -158,6 +235,11 @@ function easyOnePlayer(){
 	fill(0)
 	textSize(25)
 	text('High Score: '+easyHighscore , width/3.1,height/12)  
+
+  face.update()
+  leftEye.update()
+  rightEye.update()
+	showProgress()
 }
 
 function normalOnePlayer(){
@@ -180,6 +262,11 @@ backDrop()
 	fill(0)
 	textSize(25)
 	text('High Score: '+normalHighscore , width/3.1,height/12)  
+
+  face.update()
+   leftEye.update()
+  rightEye.update()
+	showProgress()
 }
 
 function hardOnePlayer(){
@@ -202,23 +289,89 @@ backDrop()
 	fill(0)
 	textSize(25)
 	text('High Score: '+hardHighscore , width/3.1,height/12)  
+
+  face.update()
+   leftEye.update()
+  rightEye.update()
+	showProgress()
 }
 
 function easyTwoPlayers(){
   backDrop()
+  fill(0)
+  //avatar on the left side
+	circle(width/2.65, 513 - 130, 50)
+arc(width/2.65,513,80,220,radians(180),radians(360))
+  //avatar on the right side
+  circle(width/1.6, 513 - 130, 50)
+arc(width/1.6,513,80,220,radians(180),radians(360))
+  //a line on the center
+  rect(width/2, height/1.24, 1, height/3)
 }
 
 function normalTwoPlayers(){
   backDrop()
+  fill(0)
+  //avatar on the left side
+	circle(width/2.65, 513 - 130, 50)
+arc(width/2.65,513,80,220,radians(180),radians(360))
+  //avatar on the right side
+  circle(width/1.6, 513 - 130, 50)
+arc(width/1.6,513,80,220,radians(180),radians(360))
+   //a line on the center
+  rect(width/2, height/1.24, 1, height/3)
 }
 
 function hardTwoPlayers(){
   backDrop()
+  fill(0)
+  //avatar on the left side
+	circle(width/2.65, 513 - 130, 50)
+arc(width/2.65,513,80,220,radians(180),radians(360))
+  //avatar on the right side
+  circle(width/1.6, 513 - 130, 50)
+arc(width/1.6,513,80,220,radians(180),radians(360))
+   //a line on the center
+  rect(width/2, height/1.24, 1, height/3)
+}
+
+function showProgress(){
+		switch(f){
+			case 0:	
+				face = new ball(width/1.45, height/1.15, 70, 247,250,72)
+        leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
+   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+        noFill()
+        bezier(width/1.45 - 12, height/1.15 + 10,width/1.45 - 2, height/1.15 + 20,width/1.45 + 2,height/1.15 + 20,width/1.45 + 12, height/1.15 + 10)
+				break
+			case 1:
+				face = new ball(width/1.45, height/1.15, 70, 247,250,72)
+        leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
+   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+        fill(0)
+        rect(width/1.45, height/1.15 + 12, 30, 2)
+				break
+			case 2:
+				face = new ball(width/1.45, height/1.15, 70, 62,77,130)
+        leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
+   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+        fill(0)
+        rect(width/1.45, height/1.15 + 12, 30, 2)
+				break
+			case 3:
+				face = new ball(width/1.45, height/1.15, 70, 237,69,69)
+        leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
+   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+        noFill()
+        bezier(width/1.45 - 12, height/1.15 + 20,width/1.45 - 2, height/1.15 + 10,width/1.45 + 2,height/1.15 + 10,width/1.45 + 12, height/1.15 + 20)
+				break
+		}
 }
 
 function keyPressed(){
   //if spacebar is pressed, pause and restart
-  if(keyCode === 32 && (menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9)){
+	if(menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9){
+  if(keyCode === 32){
     if(currentStatus == true){
       noLoop()
       currentStatus = false
@@ -227,23 +380,140 @@ function keyPressed(){
       currentStatus = true
     }
   }
-  //if 'q' is pressed, back to home
-  if(keyCode === 81 && (menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9)){
+  //if backspace is pressed, back to home
+  if(keyCode === 8){
     menu = 0
+  }
+  }
+  
+  if(key >= 'a' && key <= 'z'){
+    if(menu == 4){
+    
+    let easyResultOne = []
+    for(var e = 0; e < easyCurPhraseOne.length; e++){
+      if(easyCurPhraseOne[e] === key && easyGuessOne[e] === "_"){
+        easyResultOne.push(e)
+        easyGuessOne[e] = key
+				rightGuess = rightGuess + 1
+      }
+    }
+  if (easyResultOne.length > 0) {
+    f = f - 1
+		if(f < 0){
+				f = 0
+			}
+		}
+		else if(easyWrongGuessesOne.includes(key)){
+			textSize(25)
+			text("You already guessed that.", width/2, height/1.5);
+       easyRemainTime = easyRemainTime - 40
+      f = f + 2
+			if(f > 4){
+				f = 4
+			}
+		}
+		else{
+		 easyWrongGuessesOne.push(key)
+			textSize(25)
+			text("NO MATCH!", width/2, height/1.5)
+       easyRemainTime = easyRemainTime - 30
+      f = f + 1
+			if(f > 4){
+				f = 4
+			}
+		}
+  }
+  if(menu == 5){
+   let normalResultOne = []
+    for(let e = 0; e < normalCurPhraseOne.length; e++){
+      if(normalCurPhraseOne[e] === key && normalGuessOne[e] === "_"){
+        normalResultOne.push(e)
+        normalGuessOne[e] = key
+				rightGuess = rightGuess + 1
+      }
+    }
+  if (normalResultOne.length > 0) {
+    f = f - 1
+		if(f < 0){
+				f = 0
+			}
+		}
+		else if(normalWrongGuessesOne.includes(key)){
+			textSize(25)
+			text("You already guessed that.", width/2, height/1.5);
+      normalRemainTime = normalRemainTime - 40
+      f = f + 2
+			if(f > 4){
+				f = 4
+			}
+		}
+		else{
+		 normalWrongGuessesOne.push(key)
+			textSize(25)
+			text("NO MATCH!", width/2, height/1.5)
+       normalRemainTime = normalRemainTime - 30
+      f = f + 1
+			if(f > 4){
+				f = 4
+			}
+		}
+  }
+    if(menu == 6){
+    let hardResultOne = []
+    for(var e = 0; e < hardCurPhraseOne.length; e++){
+      if(hardCurPhraseOne[e] === key && hardGuessOne[e] === "_"){
+        hardResultOne.push(e)
+        hardGuessOne[e] = key
+				rightGuess = rightGuess + 1
+      }
+    }
+  if (hardResultOne.length > 0) {
+    f = f - 1
+		if(f < 0){
+				f = 0
+			}
+		}
+		else if(hardWrongGuessesOne.includes(key)){
+			textSize(25)
+			text("You already guessed that.", width/2, height/1.5);
+      hardRemainTime = hardRemainTime - 40
+      f = f + 2
+			if(f > 4){
+				f = 4
+			}
+		}
+		else{
+		 hardWrongGuessesOne.push(key)
+			textSize(25)
+			text("NO MATCH!", width/2, height/1.5)
+      hardRemainTime = hardRemainTime - 30
+      f = f + 1
+			if(f > 4){
+				f = 4
+			}
+		}
+}
   }
 }
 
 function draw() {
   clear()
+  if(menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9){
+	frameRate(1)
+	}
+  if(menu == 10 || menu == 11 || menu == 12){
+    frameRate(30)
+  }
   switch(menu){
     case 0: //home
       clear()
+      frameRate(30)
 backDrop()
   textAlign(CENTER)
   textSize(50)
   fill(0)
   text("Guess The Phrase", width/2, height/3.5)
-      
+    
   player.update()
   player.render()
   players.update()
@@ -348,6 +618,16 @@ backDrop()
     case 4: //easy mode for 1 player
      clear()
       easyOnePlayer()
+      fill(0,0,0)
+	textSize(50);
+	text(easyGuessOne.join(" "), width/2, height/3);
+	textSize(30)
+	fill(255,0,0)
+	text(easyWrongGuessesOne.join(" "), width/2, height/2)
+	//showProgress()
+      if(rightGuess == easyCurPhraseOne.length){
+				menu = 10
+			}
       if(easyRemainTime < 1){
         menu = 10
       }
@@ -355,6 +635,15 @@ backDrop()
     case 5: //normal mode for 1 player
     clear()
       normalOnePlayer()
+      fill(0,0,0)
+	textSize(50);
+	text(normalGuessOne.join(" "), width/2, height/3);
+	textSize(30)
+	fill(255,0,0)
+	text(normalWrongGuessesOne.join(" "), width/2, height/2)
+      if(rightGuess == normalCurPhraseOne.length){
+				menu = 11
+			}
       if(normalRemainTime < 1){
         menu = 11
       }
@@ -362,6 +651,15 @@ backDrop()
     case 6: //hard mode for 1 player
      clear()
       hardOnePlayer()
+      fill(0,0,0)
+	textSize(50);
+	text(hardGuessOne.join(" "), width/2, height/3);
+	textSize(30)
+	fill(255,0,0)
+	text(hardWrongGuessesOne.join(" "), width/2, height/2)
+      if(rightGuess == hardCurPhraseOne.length){
+				menu = 12
+			}
       if(hardRemainTime < 1){
         menu = 12
       }
