@@ -152,6 +152,34 @@ menu = 0
 
 function resetVariables(){
 f = 0
+
+  ELr = 50
+ERr = 50
+	NLr = 50
+NRr = 50
+	HLr = 50
+HRr = 50
+	
+ELh = 220
+ERh = 220
+	NLh = 220
+NRh = 220
+	HLh = 220
+HRh = 220
+	
+	ELy = 513 - 130
+ERy = 513 - 130
+	NLy = 513 - 130
+NRy = 513 - 130
+	HLy = 513 - 130
+HRy = 513 - 130
+	
+	ELscore = 0
+	ERscore = 0
+  NLscore = 0
+	NRscore = 0
+  HLscore = 0
+	HRscore = 0
   
 easyRightGuessOne = 0
   normalRightGuessOne = 0
@@ -395,11 +423,11 @@ function easyTwoPlayers(){
   backDrop()
   fill(0)
   //avatar on the left side
-	circle(width/2.65, 513 - 130, 50)
-arc(width/2.65,513,80,220,radians(180),radians(360))
+	circle(width/2.65, ELy, ELr)
+arc(width/2.65,513,80,ELh,radians(180),radians(360))
   //avatar on the right side
-  circle(width/1.6, 513 - 130, 50)
-arc(width/1.6,513,80,220,radians(180),radians(360))
+  circle(width/1.6, ERy, ERr)
+arc(width/1.6,513,80,ERh,radians(180),radians(360))
   //a line on the center
   rect(width/2, height/1.24, 1, height/3)
 }
@@ -407,12 +435,12 @@ arc(width/1.6,513,80,220,radians(180),radians(360))
 function normalTwoPlayers(){
   backDrop()
   fill(0)
-  //avatar on the left side
-	circle(width/2.65, 513 - 130, 50)
-arc(width/2.65,513,80,220,radians(180),radians(360))
+   //avatar on the left side
+	circle(width/2.65, NLy, NLr)
+arc(width/2.65,513,80,NLh,radians(180),radians(360))
   //avatar on the right side
-  circle(width/1.6, 513 - 130, 50)
-arc(width/1.6,513,80,220,radians(180),radians(360))
+ circle(width/1.6, NRy, NRr)
+arc(width/1.6,513,80,NRh,radians(180),radians(360))
    //a line on the center
   rect(width/2, height/1.24, 1, height/3)
 }
@@ -421,11 +449,11 @@ function hardTwoPlayers(){
   backDrop()
   fill(0)
   //avatar on the left side
-	circle(width/2.65, 513 - 130, 50)
-arc(width/2.65,513,80,220,radians(180),radians(360))
+	circle(width/2.65, HLy, HLr)
+arc(width/2.65,513,80,HLh,radians(180),radians(360))
   //avatar on the right side
-  circle(width/1.6, 513 - 130, 50)
-arc(width/1.6,513,80,220,radians(180),radians(360))
+  circle(width/1.6, HRy, HRr)
+arc(width/1.6,513,80,HRh,radians(180),radians(360))
    //a line on the center
   rect(width/2, height/1.24, 1, height/3)
 }
@@ -607,13 +635,14 @@ function keyPressed(){
 		}
 		else if(easyWrongGuessesTwo.includes(key)){
 			textSize(25)
-			text("You already guessed that.", width/2, height/1.5);
+			text("You already guessed that.", width/2, height/4 + 150);
 		}
 		else{
-		 easyWrongGuessesOne.push(key)
+		 easyWrongGuessesTwo.push(key)
 			textSize(25)
-			text("NO MATCH!", width/2, height/1.5)
+			text("NO MATCH!", width/2, height/4 + 150)
 		}
+      }
       
       if(menu == 8){
     let normalResultTwo = []
@@ -630,13 +659,14 @@ function keyPressed(){
 		}
 		else if(normalWrongGuessesTwo.includes(key)){
 			textSize(25)
-			text("You already guessed that.", width/2, height/1.5);
+			text("You already guessed that.", width/2, height/4 + 150);
 		}
 		else{
-		 normalWrongGuessesOne.push(key)
+		 normalWrongGuessesTwo.push(key)
 			textSize(25)
-			text("NO MATCH!", width/2, height/1.5)
+			text("NO MATCH!", width/2, height/4 + 150)
 		}
+      }
 
         if(menu == 9){
     let hardResultTwo = []
@@ -653,18 +683,16 @@ function keyPressed(){
 		}
 		else if(hardWrongGuessesTwo.includes(key)){
 			textSize(25)
-			text("You already guessed that.", width/2, height/1.5);
+			text("You already guessed that.", width/2, height/4 + 120);
 		}
 		else{
-		 hardWrongGuessesOne.push(key)
+		 hardWrongGuessesTwo.push(key)
 			textSize(25)
-			text("NO MATCH!", width/2, height/1.5)
+			text("NO MATCH!", width/2, height/4 + 120)
 		}
   }
   }
 }
-  }
-  }
 
 function draw() {
   clear()
@@ -778,21 +806,25 @@ backDrop()
       fill(0)
       text("Instruction", width/2, height/3.5)
 
-      textSize(14.5)
-      text("Guess the phrase or word by pressing any letter key within the time limit.",width/2, height*20/50)
-      text("1 Player Mode", width/2, height*24/50)
-      text("2 Player Mode", width/2,height*30/50)
+      textSize(20)
+      text("1 Player Mode", width/2, height/2.5)
+      text("2 Players Mode", width/2,height/1.55)
       
       textSize(14)
-      text("Whenever the player guesses one letter wrong,", width/2, height*26/50)
-      text("the player's time will be reduced by 30 seconds.", width/2, height*27/50)
-      text("If player one guesses correctly,",width/2, height*32/50)
-      text("then player one continues guessing",width/2,height*33/50)
-      text("Otherwise, it move on to player 2.",width/2,height*34/50)
-      text("Who guesses more letters wins.", width/2, height*35/50)
+      text("Guess the phrase or word by pressing any letter key within the time limit.",width/2, height/2.1)
+      text("Whenever a player guesses wrong letter,", width/2.1, height/2.1 + 25)
+      text("the time limit will be decreased by 30 seconds.", width/2.1 + 80, height/2.1 + 40)
 
-      text("[Spacebar] pause",width/4, height*38/50)
-      text("[Backspace] quit", width/4, height*40/50)
+       text("Guess the phrase or word by pressing any letter key.",width/2, height/1.55 + 30)
+      text("If a player guesses correct letter,",width/2.1, height/1.55 + 55)
+      text("then the player continues guessing",width/2.1 + 60,height/1.55 + 70)
+      text("Otherwise, the turn move on to another player.",width/2,height/1.55 + 95)
+      text("The player who guesses more letters wins.", width/2, height/1.55 + 120)
+
+      textAlign(LEFT)
+      textSize(15)
+      text("[Spacebar] pause",width/1.56, height/14)
+      text("[Backspace] quit", width/1.56, height/14 + 20)
       
       back.update()
       back.render()
@@ -860,11 +892,11 @@ backDrop()
       easyTwoPlayers()
       fill(0,0,0)
 	textSize(50);
-	text(easyGuessTwo.join(" "), width/2, height/3);
+	text(easyGuessTwo.join(" "), width/2, height/4);
 	textSize(20)
-      text(`Hint: ${easyCurPhraseTwo.hint}`, width/2, height/2 - 20)
+      text(`Hint: ${easyCurPhraseTwo.hint}`, width/2, height/4 + 60)
 	fill(255,0,0)
-	text(easyWrongGuessesTwo.join(" "), width/2, height/2 + 20)
+	text(easyWrongGuessesTwo.join(" "), width/2, height/4 + 90)
       if(easyRightGuessTwo == easyCurPhraseTwo.phrase.length){
 				menu = 13
 			}
@@ -874,15 +906,15 @@ backDrop()
       normalTwoPlayers()
       fill(0,0,0)
 	textSize(40);
-	text(normalGuessTwo.join(" "), width/2, height/3);
+	text(normalGuessTwo.join(" "), width/2, height/4);
       if(normalWrongGuessesTwo.length > 1){
         fill(0)
         textSize(20)
-        text(`Hint: ${normalCurPhraseTwo.hint}`, width/2, height/2 - 20)
+        text(`Hint: ${normalCurPhraseTwo.hint}`, width/2, height/4 + 60)
       }
   textSize(20)
 	fill(255,0,0)
-	text(normalWrongGuessesTwo.join(" "), width/2, height/2 + 20)
+	text(normalWrongGuessesTwo.join(" "), width/2, height/4 + 90)
       if(normalRightGuessTwo == normalCurPhraseTwo.phrase.length){
 				menu = 14
 			}
@@ -891,11 +923,11 @@ backDrop()
      clear()
       hardTwoPlayers()
       fill(0,0,0)
-	textSize(40);
-	text(hardGuessTwo.join(" "), width/2, height/3);
+	textSize(30);
+	text(hardGuessTwo.join(" "), width/2, height/4);
 	textSize(20)
 	fill(255,0,0)
-	text(hardWrongGuessesTwo.join(" "), width/2, height/2 + 20)
+	text(hardWrongGuessesTwo.join(" "), width/2, height/4 + 60)
       if(hardRightGuessTwo == hardCurPhraseTwo.phrase.length){
 				menu = 15
 			}
