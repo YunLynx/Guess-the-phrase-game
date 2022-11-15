@@ -153,7 +153,13 @@ menu = 0
 function resetVariables(){
 f = 0
   
-rightGuess = 0
+easyRightGuessOne = 0
+  normalRightGuessOne = 0
+  hardRightGuessOne = 0
+  
+  easyRightGuessTwo = 0
+  normalRightGuessTwo = 0
+  hardRightGuessTwo = 0
   
   //time variables for easy, normal and hard stages on 1 player
   easyTotalTime = 300
@@ -206,6 +212,9 @@ rightGuess = 0
   normalWrongGuessesOne = []
   for (let e = 0; e < normalCurPhraseOne.phrase.length; e++){
     normalGuessOne.push(normalCurPhraseOne.phrase[e] == " " ? " " : "_")
+    if(normalCurPhraseOne.phrase[e] == " "){
+			normalRightGuessOne = normalRightGuessOne + 1
+		}
   }
   
   hardPhrasesOne = [
@@ -226,32 +235,76 @@ rightGuess = 0
   hardWrongGuessesOne = []
   for (let e = 0; e < hardCurPhraseOne.phrase.length; e++){
     hardGuessOne.push(hardCurPhraseOne.phrase[e] == " " ? " " : "_")
+    if(hardCurPhraseOne.phrase[e] == " "){
+			hardRightGuessOne = hardRightGuessOne + 1
+		}
   }
 
   //phrases for easy, normal and hard stages in 2 players
-  easyPhrasesTwo = ["space", "biology", "chemistry", "atmosphere"]
-  easyIndexTwo = Math.floor(random(0, easyPhrasesTwo.length))
+  easyPhrasesTwo = [
+  new Phrase("tennis", "A sport"),
+  new Phrase("prison", "A building"),
+	 new Phrase("hamster", "A rodent"),
+    new Phrase("cancer", "A disease"),
+  new Phrase("doctor", "A job"),
+	 new Phrase("germany", "A country"),
+    new Phrase("clover", "A plant"),
+  new Phrase("carbon", "A chemical element"),
+	 new Phrase("violin", "A musical instrument"),
+    new Phrase("monkey", "An animal"),
+];
+ easyIndexTwo = Math.floor(random(0, easyPhrasesTwo.length))
   easyCurPhraseTwo = easyPhrasesTwo[easyIndexTwo]
   easyGuessTwo = []
   easyWrongGuessesTwo = []
-  for (let e = 0; e < easyCurPhraseTwo.length; e++){
-    easyGuessTwo.push(easyCurPhraseTwo[e] == " " ? " " : "_")
+  for (let e = 0; e < easyCurPhraseTwo.phrase.length; e++){
+    easyGuessTwo.push(easyCurPhraseTwo.phrase[e] == " " ? " " : "_")
   }
-  normalPhrasesTwo = ["space", "biology", "chemistry", "atmosphere"]
+  
+  normalPhrasesTwo = [
+  new Phrase("hummingbird", "A bird"),
+  new Phrase("albatross", "A bird"),
+	 new Phrase("pomegranate", "A fruit"),
+    new Phrase("baryonyx", "A dinosaur"),
+  new Phrase("hydroxide", "A polyatomic ion"),
+	 new Phrase("go down in flames", "To fail spectacularly"),
+    new Phrase("sit on the fence", "Avoid making a decision"),
+  new Phrase("miss the boat", "Be too slow to take advantage of an opportunity"),
+	 new Phrase("fair and square", "Honestly and straightforwardly"),
+    new Phrase("cry wolf", "It contains an animal"),
+];
   normalIndexTwo = Math.floor(random(0, normalPhrasesTwo.length))
   normalCurPhraseTwo = normalPhrasesTwo[normalIndexTwo]
   normalGuessTwo = []
   normalWrongGuessesTwo = []
-  for (let e = 0; e < normalCurPhraseTwo.length; e++){
-    normalGuessTwo.push(normalCurPhraseTwo[e] == " " ? " " : "_")
+  for (let e = 0; e < normalCurPhraseTwo.phrase.length; e++){
+    normalGuessTwo.push(normalCurPhraseTwo.phrase[e] == " " ? " " : "_")
+    if(normalCurPhraseTwo.phrase[e] == " "){
+			normalRightGuessTwo = normalRightGuessTwo + 1
+		}
   }
-  hardPhrasesTwo = ["space", "biology", "chemistry", "atmosphere"]
+  
+  hardPhrasesTwo = [
+  new Phrase("be easier said than done", ""),
+  new Phrase("kill two birds with one stone", ""),
+	 new Phrase("cassowaries", ""),
+    new Phrase("babingtonite", ""),
+  new Phrase("kaleidoscope", ""),
+	 new Phrase("omphalomancy", ""),
+    new Phrase("abandonment", ""),
+  new Phrase("wild goose chase", ""),
+	 new Phrase("break the bank", ""),
+    new Phrase("jump the gun", ""),
+];
   hardIndexTwo = Math.floor(random(0, hardPhrasesTwo.length))
   hardCurPhraseTwo = hardPhrasesTwo[hardIndexTwo]
   hardGuessTwo = []
   hardWrongGuessesTwo = []
-  for (let e = 0; e < hardCurPhraseTwo.length; e++){
-    hardGuessTwo.push(hardCurPhraseTwo[e] == " " ? " " : "_")
+  for (let e = 0; e < hardCurPhraseTwo.phrase.length; e++){
+    hardGuessTwo.push(hardCurPhraseTwo.phrase[e] == " " ? " " : "_")
+    if(hardCurPhraseTwo.phrase[e] == " "){
+			hardRightGuessTwo = hardRightGuessTwo + 1
+		}
   }
 }
 
@@ -437,7 +490,7 @@ function keyPressed(){
       if(easyPhraseOne[e] === key && easyGuessOne[e] === "_"){
         easyResultOne.push(e)
         easyGuessOne[e] = key
-				rightGuess = rightGuess + 1
+				easyRightGuessOne = easyRightGuessOne + 1
       }
     }
   if (easyResultOne.length > 0) {
@@ -473,7 +526,7 @@ function keyPressed(){
       if(normalPhraseOne[e] === key && normalGuessOne[e] === "_"){
         normalResultOne.push(e)
         normalGuessOne[e] = key
-				rightGuess = rightGuess + 1
+				normalRightGuessOne = normalRightGuessOne + 1
       }
     }
   if (normalResultOne.length > 0) {
@@ -509,7 +562,7 @@ function keyPressed(){
       if(hardPhraseOne[e] === key && hardGuessOne[e] === "_"){
         hardResultOne.push(e)
         hardGuessOne[e] = key
-				rightGuess = rightGuess + 1
+				hardRightGuessOne = hardRightGuessOne + 1
       }
     }
   if (hardResultOne.length > 0) {
@@ -538,8 +591,80 @@ function keyPressed(){
 			}
 		}
 }
+    
+    if(menu == 7){
+    let easyResultTwo = []
+    let easyPhraseTwo = easyCurPhraseTwo.phrase
+    for(let e = 0; e < easyPhraseTwo.length; e++){
+      if(easyPhraseTwo[e] === key && easyGuessTwo[e] === "_"){
+        easyResultTwo.push(e)
+        easyGuessTwo[e] = key
+				easyRightGuessTwo = easyRightGuessTwo + 1
+      }
+    }
+  if (easyResultTwo.length > 0) {
+    
+		}
+		else if(easyWrongGuessesTwo.includes(key)){
+			textSize(25)
+			text("You already guessed that.", width/2, height/1.5);
+		}
+		else{
+		 easyWrongGuessesOne.push(key)
+			textSize(25)
+			text("NO MATCH!", width/2, height/1.5)
+		}
+      
+      if(menu == 8){
+    let normalResultTwo = []
+    let normalPhraseTwo = normalCurPhraseTwo.phrase
+    for(let e = 0; e < normalPhraseTwo.length; e++){
+      if(normalPhraseTwo[e] === key && normalGuessTwo[e] === "_"){
+        normalResultTwo.push(e)
+        normalGuessTwo[e] = key
+				normalRightGuessTwo = normalRightGuessTwo + 1
+      }
+    }
+  if (normalResultTwo.length > 0) {
+    
+		}
+		else if(normalWrongGuessesTwo.includes(key)){
+			textSize(25)
+			text("You already guessed that.", width/2, height/1.5);
+		}
+		else{
+		 normalWrongGuessesOne.push(key)
+			textSize(25)
+			text("NO MATCH!", width/2, height/1.5)
+		}
+
+        if(menu == 9){
+    let hardResultTwo = []
+    let hardPhraseTwo = hardCurPhraseTwo.phrase
+    for(let e = 0; e < hardPhraseTwo.length; e++){
+      if(hardPhraseTwo[e] === key && hardGuessTwo[e] === "_"){
+        hardResultTwo.push(e)
+        hardGuessTwo[e] = key
+				hardRightGuessTwo = hardRightGuessTwo + 1
+      }
+    }
+  if (hardResultTwo.length > 0) {
+    
+		}
+		else if(hardWrongGuessesTwo.includes(key)){
+			textSize(25)
+			text("You already guessed that.", width/2, height/1.5);
+		}
+		else{
+		 hardWrongGuessesOne.push(key)
+			textSize(25)
+			text("NO MATCH!", width/2, height/1.5)
+		}
+  }
   }
 }
+  }
+  }
 
 function draw() {
   clear()
@@ -670,7 +795,7 @@ backDrop()
       text(`Hint: ${easyCurPhraseOne.hint}`, width/2, height/2 - 20)
 	fill(255,0,0)
 	text(easyWrongGuessesOne.join(" "), width/2, height/2 + 20)
-      if(rightGuess == easyCurPhraseOne.phrase.length){
+      if(easyRightGuessOne == easyCurPhraseOne.phrase.length){
 				menu = 10
 			}
       if(easyRemainTime < 1){
@@ -691,7 +816,7 @@ backDrop()
   textSize(20)
 	fill(255,0,0)
 	text(normalWrongGuessesOne.join(" "), width/2, height/2 + 20)
-      if(rightGuess == normalCurPhraseOne.phrase.length){
+      if(normalRightGuessOne == normalCurPhraseOne.phrase.length){
 				menu = 11
 			}
       if(normalRemainTime < 1){
@@ -702,12 +827,12 @@ backDrop()
      clear()
       hardOnePlayer()
       fill(0,0,0)
-	textSize(40);
+	textSize(25);
 	text(hardGuessOne.join(" "), width/2, height/3);
 	textSize(20)
 	fill(255,0,0)
 	text(hardWrongGuessesOne.join(" "), width/2, height/2 + 20)
-      if(rightGuess == hardCurPhraseOne.phrase.length){
+      if(hardRightGuessOne == hardCurPhraseOne.phrase.length){
 				menu = 12
 			}
       if(hardRemainTime < 1){
@@ -717,14 +842,47 @@ backDrop()
     case 7: //easy mode for 2 players
       clear()
       easyTwoPlayers()
+      fill(0,0,0)
+	textSize(50);
+	text(easyGuessTwo.join(" "), width/2, height/3);
+	textSize(20)
+      text(`Hint: ${easyCurPhraseTwo.hint}`, width/2, height/2 - 20)
+	fill(255,0,0)
+	text(easyWrongGuessesTwo.join(" "), width/2, height/2 + 20)
+      if(easyRightGuessTwo == easyCurPhraseTwo.phrase.length){
+				menu = 13
+			}
       break
     case 8: //normal mode for 2 players
       clear()
       normalTwoPlayers()
+      fill(0,0,0)
+	textSize(40);
+	text(normalGuessTwo.join(" "), width/2, height/3);
+      if(normalWrongGuessesTwo.length > 1){
+        fill(0)
+        textSize(20)
+        text(`Hint: ${normalCurPhraseTwo.hint}`, width/2, height/2 - 20)
+      }
+  textSize(20)
+	fill(255,0,0)
+	text(normalWrongGuessesTwo.join(" "), width/2, height/2 + 20)
+      if(normalRightGuessTwo == normalCurPhraseTwo.phrase.length){
+				menu = 14
+			}
       break
     case 9: //hard mode for 2 playres
      clear()
       hardTwoPlayers()
+      fill(0,0,0)
+	textSize(40);
+	text(hardGuessTwo.join(" "), width/2, height/3);
+	textSize(20)
+	fill(255,0,0)
+	text(hardWrongGuessesTwo.join(" "), width/2, height/2 + 20)
+      if(hardRightGuessTwo == hardCurPhraseTwo.phrase.length){
+				menu = 15
+			}
       break
     case 10: //result of 1 player's easy stage
      clear()
@@ -773,7 +931,7 @@ backDrop()
        }
      }
       break
-    case 11: 
+    case 11: //result of 1 player's normal stage
       clear()
       backDrop()
      normalScore = normalRemainTime * 100 / topScore_time
@@ -820,7 +978,7 @@ backDrop()
        }
      }
       break
-    case 12:
+    case 12: //result of 1 player's hard stage
       clear()
       backDrop()
      hardScore = hardRemainTime * 100 / topScore_time
@@ -866,6 +1024,18 @@ backDrop()
          menu = 6
        }
      }
+      break
+    case 13: //result of 2 players' easy stage
+      clear()
+      backDrop()
+      break
+    case 14: //result of 2 players' normal stage
+      clear()
+      backDrop()
+      break
+    case 15: //result of 2 players' hard stage
+      clear()
+      backDrop()
       break
   }
 }
