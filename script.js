@@ -777,6 +777,22 @@ backDrop()
       textSize(50)
       fill(0)
       text("Instruction", width/2, height/3.5)
+
+      textSize(14.5)
+      text("Guess the phrase or word by pressing any letter key within the time limit.",width/2, height*20/50)
+      text("1 Player Mode", width/2, height*24/50)
+      text("2 Player Mode", width/2,height*30/50)
+      
+      textSize(14)
+      text("Whenever the player guesses one letter wrong,", width/2, height*26/50)
+      text("the player's time will be reduced by 30 seconds.", width/2, height*27/50)
+      text("If player one guesses correctly,",width/2, height*32/50)
+      text("then player one continues guessing",width/2,height*33/50)
+      text("Otherwise, it move on to player 2.",width/2,height*34/50)
+      text("Who guesses more letters wins.", width/2, height*35/50)
+
+      text("[Spacebar] pause",width/4, height*38/50)
+      text("[Backspace] quit", width/4, height*40/50)
       
       back.update()
       back.render()
