@@ -1,3 +1,10 @@
+class Phrase {
+  constructor(phrase, hint) {
+    this.phrase = phrase;
+    this.hint = hint;
+  }
+}
+
 class button {
 	constructor(x,y,w,h,text,r,g,b) {
 		this.posX = x
@@ -161,29 +168,64 @@ rightGuess = 0
   topScore_time = 100
 
   //phrases for easy, normal and hard stages in 1 player
-  easyPhrasesOne = ["space", "biology", "chemistry", "atmosphere"]
+  easyPhrasesOne = [
+  new Phrase("forest", "A habitat"),
+  new Phrase("salmon", "A fish"),
+	 new Phrase("radish", "A vegetable"),
+    new Phrase("candle", "A object"),
+  new Phrase("turtle", "A reptile"),
+	 new Phrase("beaver", "A rodent"),
+    new Phrase("waiter", "A job"),
+  new Phrase("garlic", "A vegetable"),
+	 new Phrase("lawyer", "A job"),
+    new Phrase("yogurt", "A dairy product"),
+];
   easyIndexOne = Math.floor(random(0, easyPhrasesOne.length))
   easyCurPhraseOne = easyPhrasesOne[easyIndexOne]
   easyGuessOne = []
   easyWrongGuessesOne = []
-  for (let e = 0; e < easyCurPhraseOne.length; e++){
-    easyGuessOne.push(easyCurPhraseOne[e] == " " ? " " : "_")
+  for (let e = 0; e < easyCurPhraseOne.phrase.length; e++){
+    easyGuessOne.push(easyCurPhraseOne.phrase[e] == " " ? " " : "_")
   }
-  normalPhrasesOne = ["forest", "clear", "trash", "cat"]
-  normalIndexOne = Math.floor(random(0, normalPhrasesOne.length))
+
+  normalPhrasesOne = [
+  new Phrase("head over heels", "Be in love"),
+  new Phrase("happy puppy", "It contains an animal"),
+	 new Phrase("as right as rain", "Feeling completely well"),
+    new Phrase("cool as a cucumber", "To be very calm and relaxed"),
+  new Phrase("eat like a bird", "It contains an animal"),
+	 new Phrase("pharmacist", "A job"),
+    new Phrase("flamingo", "A bird"),
+  new Phrase("bagpipe", "A musical instrument"),
+	 new Phrase("hibiscus", "A plant"),
+    new Phrase("leukaemia", "A disease"),
+];
+   normalIndexOne = Math.floor(random(0, normalPhrasesOne.length))
   normalCurPhraseOne = normalPhrasesOne[normalIndexOne]
   normalGuessOne = []
   normalWrongGuessesOne = []
-  for (let e = 0; e < normalCurPhraseOne.length; e++){
-    normalGuessOne.push(normalCurPhraseOne[e] == " " ? " " : "_")
+  for (let e = 0; e < normalCurPhraseOne.phrase.length; e++){
+    normalGuessOne.push(normalCurPhraseOne.phrase[e] == " " ? " " : "_")
   }
-  hardPhrasesOne = ["space", "biology", "chemistry", "atmosphere"]
+  
+  hardPhrasesOne = [
+  new Phrase("keep an ear to the ground", ""),
+  new Phrase("snug as a bug in a rug", ""),
+	 new Phrase("throw caution to the wind", ""),
+    new Phrase("flesh and blood", ""),
+  new Phrase("bite the bullet", ""),
+	 new Phrase("dactylogram", ""),
+    new Phrase("bougainvillea", ""),
+  new Phrase("ecclesiarch", ""),
+	 new Phrase("fabulation", "A plant"),
+    new Phrase("jaguarundi", ""),
+];
   hardIndexOne = Math.floor(random(0, hardPhrasesOne.length))
   hardCurPhraseOne = hardPhrasesOne[hardIndexOne]
   hardGuessOne = []
   hardWrongGuessesOne = []
-  for (let e = 0; e < hardCurPhraseOne.length; e++){
-    hardGuessOne.push(hardCurPhraseOne[e] == " " ? " " : "_")
+  for (let e = 0; e < hardCurPhraseOne.phrase.length; e++){
+    hardGuessOne.push(hardCurPhraseOne.phrase[e] == " " ? " " : "_")
   }
 
   //phrases for easy, normal and hard stages in 2 players
@@ -234,7 +276,7 @@ function easyOnePlayer(){
 	stroke(0)
 	fill(0)
 	textSize(25)
-	text('High Score: '+easyHighscore , width/3.1,height/12)  
+	text('High Score: '+easyHighscore , width/3,height/12)  
 
   face.update()
   leftEye.update()
@@ -261,7 +303,7 @@ backDrop()
 	stroke(0)
 	fill(0)
 	textSize(25)
-	text('High Score: '+normalHighscore , width/3.1,height/12)  
+	text('High Score: '+normalHighscore , width/3,height/12)  
 
   face.update()
    leftEye.update()
@@ -288,7 +330,7 @@ backDrop()
 	stroke(0)
 	fill(0)
 	textSize(25)
-	text('High Score: '+hardHighscore , width/3.1,height/12)  
+	text('High Score: '+hardHighscore , width/3,height/12)  
 
   face.update()
    leftEye.update()
@@ -390,8 +432,9 @@ function keyPressed(){
     if(menu == 4){
     
     let easyResultOne = []
-    for(var e = 0; e < easyCurPhraseOne.length; e++){
-      if(easyCurPhraseOne[e] === key && easyGuessOne[e] === "_"){
+    let easyPhraseOne = easyCurPhraseOne.phrase
+    for(let e = 0; e < easyPhraseOne.length; e++){
+      if(easyPhraseOne[e] === key && easyGuessOne[e] === "_"){
         easyResultOne.push(e)
         easyGuessOne[e] = key
 				rightGuess = rightGuess + 1
@@ -424,9 +467,10 @@ function keyPressed(){
 		}
   }
   if(menu == 5){
-   let normalResultOne = []
-    for(let e = 0; e < normalCurPhraseOne.length; e++){
-      if(normalCurPhraseOne[e] === key && normalGuessOne[e] === "_"){
+    let normalResultOne = []
+    let normalPhraseOne = normalCurPhraseOne.phrase
+    for(let e = 0; e < normalPhraseOne.length; e++){
+      if(normalPhraseOne[e] === key && normalGuessOne[e] === "_"){
         normalResultOne.push(e)
         normalGuessOne[e] = key
 				rightGuess = rightGuess + 1
@@ -459,9 +503,10 @@ function keyPressed(){
 		}
   }
     if(menu == 6){
-    let hardResultOne = []
-    for(var e = 0; e < hardCurPhraseOne.length; e++){
-      if(hardCurPhraseOne[e] === key && hardGuessOne[e] === "_"){
+     let hardResultOne = []
+    let hardPhraseOne = hardCurPhraseOne.phrase
+    for(let e = 0; e < hardPhraseOne.length; e++){
+      if(hardPhraseOne[e] === key && hardGuessOne[e] === "_"){
         hardResultOne.push(e)
         hardGuessOne[e] = key
 				rightGuess = rightGuess + 1
@@ -621,11 +666,11 @@ backDrop()
       fill(0,0,0)
 	textSize(50);
 	text(easyGuessOne.join(" "), width/2, height/3);
-	textSize(30)
+	textSize(20)
+      text(`Hint: ${easyCurPhraseOne.hint}`, width/2, height/2 - 20)
 	fill(255,0,0)
-	text(easyWrongGuessesOne.join(" "), width/2, height/2)
-	//showProgress()
-      if(rightGuess == easyCurPhraseOne.length){
+	text(easyWrongGuessesOne.join(" "), width/2, height/2 + 20)
+      if(rightGuess == easyCurPhraseOne.phrase.length){
 				menu = 10
 			}
       if(easyRemainTime < 1){
@@ -636,12 +681,17 @@ backDrop()
     clear()
       normalOnePlayer()
       fill(0,0,0)
-	textSize(50);
+	textSize(40);
 	text(normalGuessOne.join(" "), width/2, height/3);
-	textSize(30)
+      if(normalWrongGuessesOne.length > 1){
+        fill(0)
+        textSize(20)
+        text(`Hint: ${normalCurPhraseOne.hint}`, width/2, height/2 - 20)
+      }
+  textSize(20)
 	fill(255,0,0)
-	text(normalWrongGuessesOne.join(" "), width/2, height/2)
-      if(rightGuess == normalCurPhraseOne.length){
+	text(normalWrongGuessesOne.join(" "), width/2, height/2 + 20)
+      if(rightGuess == normalCurPhraseOne.phrase.length){
 				menu = 11
 			}
       if(normalRemainTime < 1){
@@ -652,12 +702,12 @@ backDrop()
      clear()
       hardOnePlayer()
       fill(0,0,0)
-	textSize(50);
+	textSize(40);
 	text(hardGuessOne.join(" "), width/2, height/3);
-	textSize(30)
+	textSize(20)
 	fill(255,0,0)
-	text(hardWrongGuessesOne.join(" "), width/2, height/2)
-      if(rightGuess == hardCurPhraseOne.length){
+	text(hardWrongGuessesOne.join(" "), width/2, height/2 + 20)
+      if(rightGuess == hardCurPhraseOne.phrase.length){
 				menu = 12
 			}
       if(hardRemainTime < 1){
