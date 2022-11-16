@@ -202,9 +202,9 @@ easyRightGuessOne = 0
   //time variables for easy, normal and hard stages on 1 player
   easyTotalTime = 300
   easyRemainTime = easyTotalTime
-  normalTotalTime = 240
+  normalTotalTime = 270
   normalRemainTime = normalTotalTime
-  hardTotalTime = 180
+  hardTotalTime = 210
   hardRemainTime = hardTotalTime
   sc_prev = -1
 
