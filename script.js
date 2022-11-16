@@ -926,7 +926,6 @@ backDrop()
 
       textAlign(LEFT)
       textSize(15)
-      fill(255,255,255)
       text("[Spacebar] pause",width/1.56, height/14)
       text("[Backspace] quit", width/1.56, height/14 + 20)
       
