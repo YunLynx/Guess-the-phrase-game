@@ -106,9 +106,14 @@ rect(width/2, height/2, 600, 500)
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(10, 10, 50);
+  
 menu = 0
 
   currentStatus = true
+
+  easyLeftTurn = true
+  normalLeftTurn = true
+  hardLeftTurn = true
 
   //highscore for easy, normal and hard of 1 player
   easyHighscore = 0
@@ -130,10 +135,15 @@ menu = 0
   normalForTwoPlayers = new button(width/2, height/1.63, 120, 30, "Normal",237, 126, 14)
   hardForTwoPlayers = new button(width/2 + 140, height/1.63, 120, 30, "Hard",237, 126, 14)
 
-//restart button on result of 1 player's easy stage
+//restart button on result of 1 player's easy, normal and hard stages
   restartEasyForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
   restartNormalForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
   restartHardForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
+
+  //restart button on result of 2 players' easy, normal and hard stages
+  restartEasyForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
+  restartNormalForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
+  restartHardForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
   
   //back button on 1 player, 2 players and instruction
   back = new backButton (width/3.3, height/12, width/3.3, height/12 + 40, width/3.3 - 40, height/12 + 20, 237, 126, 14)
@@ -430,6 +440,24 @@ arc(width/2.65,513,80,ELh,radians(180),radians(360))
 arc(width/1.6,513,80,ERh,radians(180),radians(360))
   //a line on the center
   rect(width/2, height/1.24, 1, height/3)
+
+  if(easyLeftTurn == true){
+    ELy = 513 - 130
+    ELr = 50
+    ELh = 220
+    
+		ERy = 513 - 70
+		ERr = 40
+		ERh = 100
+	}else{
+    ERy = 513 - 130
+		ERr = 50
+		ERh = 220
+
+    ELy = 513 - 70
+    ELr = 40
+    ELh = 100
+  }
 }
 
 function normalTwoPlayers(){
@@ -443,6 +471,24 @@ arc(width/2.65,513,80,NLh,radians(180),radians(360))
 arc(width/1.6,513,80,NRh,radians(180),radians(360))
    //a line on the center
   rect(width/2, height/1.24, 1, height/3)
+
+  if(normalLeftTurn == true){
+    NLy = 513 - 130
+    NLr = 50
+    NLh = 220
+    
+		NRy = 513 - 70
+		NRr = 40
+		NRh = 100
+	}else{
+    NRy = 513 - 130
+		NRr = 50
+		NRh = 220
+
+    NLy = 513 - 70
+    NLr = 40
+    NLh = 100
+  }
 }
 
 function hardTwoPlayers(){
@@ -456,6 +502,24 @@ arc(width/2.65,513,80,HLh,radians(180),radians(360))
 arc(width/1.6,513,80,HRh,radians(180),radians(360))
    //a line on the center
   rect(width/2, height/1.24, 1, height/3)
+
+  if(hardLeftTurn == true){
+    HLy = 513 - 130
+    HLr = 50
+    HLh = 220
+    
+		HRy = 513 - 70
+		HRr = 40
+		HRh = 100
+	}else{
+    HRy = 513 - 130
+		HRr = 50
+		HRh = 220
+
+    HLy = 513 - 70
+    HLr = 40
+    HLh = 100
+  }
 }
 
 function showProgress(){
@@ -631,14 +695,27 @@ function keyPressed(){
       }
     }
   if (easyResultTwo.length > 0) {
-    
+    if(easyLeftTurn == true){
+					ELscore = ELscore + 1
+      }else{
+				ERscore = ERscore + 1
+			}
 		}
 		else if(easyWrongGuessesTwo.includes(key)){
+      if(easyLeftTurn == true){
+				easyLeftTurn = false
+			}else{
+				easyLeftTurn = true
+			}
 			textSize(25)
 			text("You already guessed that.", width/2, height/4 + 150);
 		}
-		else{
-		 easyWrongGuessesTwo.push(key)
+		else if(easyWrongGuessesTwo.push(key)){
+      if(easyLeftTurn == true){
+			easyLeftTurn = false
+			}else{
+				easyLeftTurn = true
+			}
 			textSize(25)
 			text("NO MATCH!", width/2, height/4 + 150)
 		}
@@ -655,14 +732,27 @@ function keyPressed(){
       }
     }
   if (normalResultTwo.length > 0) {
-    
+    if(normalLeftTurn == true){
+					NLscore = NLscore + 1
+      }else{
+				NRscore = NRscore + 1
+			}
 		}
 		else if(normalWrongGuessesTwo.includes(key)){
+      if(normalLeftTurn == true){
+				normalLeftTurn = false
+			}else{
+				normalLeftTurn = true
+			}
 			textSize(25)
 			text("You already guessed that.", width/2, height/4 + 150);
 		}
-		else{
-		 normalWrongGuessesTwo.push(key)
+		else if(normalWrongGuessesTwo.push(key)){
+      if(normalLeftTurn == true){
+			normalLeftTurn = false
+			}else{
+				normalLeftTurn = true
+			}
 			textSize(25)
 			text("NO MATCH!", width/2, height/4 + 150)
 		}
@@ -679,14 +769,27 @@ function keyPressed(){
       }
     }
   if (hardResultTwo.length > 0) {
-    
+    if(hardLeftTurn == true){
+					HLscore = HLscore + 1
+      }else{
+				HRscore = HRscore + 1
+			}
 		}
 		else if(hardWrongGuessesTwo.includes(key)){
+      if(hardLeftTurn == true){
+				hardLeftTurn = false
+			}else{
+				hardLeftTurn = true
+			}
 			textSize(25)
 			text("You already guessed that.", width/2, height/4 + 120);
 		}
-		else{
-		 hardWrongGuessesTwo.push(key)
+		else if(hardWrongGuessesTwo.push(key)){
+      if(hardLeftTurn == true){
+			hardLeftTurn = false
+			}else{
+				hardLeftTurn = true
+			}
 			textSize(25)
 			text("NO MATCH!", width/2, height/4 + 120)
 		}
@@ -699,7 +802,7 @@ function draw() {
   if(menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9){
 	frameRate(1)
 	}
-  if(menu == 10 || menu == 11 || menu == 12){
+  if(menu == 10 || menu == 11 || menu == 12 || menu == 13 || menu == 14 || menu == 15){
     frameRate(30)
   }
   switch(menu){
@@ -898,6 +1001,8 @@ backDrop()
 	fill(255,0,0)
 	text(easyWrongGuessesTwo.join(" "), width/2, height/4 + 90)
       if(easyRightGuessTwo == easyCurPhraseTwo.phrase.length){
+        ELscore *= 10
+				ERscore *= 10
 				menu = 13
 			}
       break
@@ -916,6 +1021,8 @@ backDrop()
 	fill(255,0,0)
 	text(normalWrongGuessesTwo.join(" "), width/2, height/4 + 90)
       if(normalRightGuessTwo == normalCurPhraseTwo.phrase.length){
+        NLscore *= 10
+				NRscore *= 10
 				menu = 14
 			}
       break
@@ -923,12 +1030,14 @@ backDrop()
      clear()
       hardTwoPlayers()
       fill(0,0,0)
-	textSize(30);
+	textSize(25);
 	text(hardGuessTwo.join(" "), width/2, height/4);
 	textSize(20)
 	fill(255,0,0)
 	text(hardWrongGuessesTwo.join(" "), width/2, height/4 + 60)
       if(hardRightGuessTwo == hardCurPhraseTwo.phrase.length){
+        HLscore *= 10
+				HRscore *= 10
 				menu = 15
 			}
       break
@@ -1076,14 +1185,113 @@ backDrop()
     case 13: //result of 2 players' easy stage
       clear()
       backDrop()
+
+      if(ELscore>ERscore){
+				easyLeftResult="WIN"
+				easyRightResult="LOSE"
+			}else if(ELscore<ERscore){
+				easyLeftResult="LOSE"
+				easyRightResult="WIN"
+			}else if(ELscore==ERscore){
+				easyLeftResult="TIE"
+				easyRightResult="TIE"
+			}else{
+				easyLeftResult="DRAW"
+				easyRightResult="DRAW"
+			}
+      fill(0)
+      textSize(50)
+			text(easyRightResult, width/2 + 150,height/2.7)
+			text(easyLeftResult, width/2 - 150,height/2.7)
+			textSize(30)
+	text('Score: '+ERscore,width/2 + 150,height/2)
+	text('Score: '+ELscore,width/2 - 150,height/2)
+      rect(width/2, height/2.5, 3, height/2.5)
+      home.update()
+        home.render()
+       restartEasyForTwo.update()
+       restartEasyForTwo.render()
+         if(home.pressed === true){
+         menu = 0
+       }
+       if(restartEasyForTwo.pressed === true){
+         resetVariables()
+         menu = 7
+       }
       break
     case 14: //result of 2 players' normal stage
       clear()
       backDrop()
+
+      if(NLscore > NRscore){
+				normalLeftResult = "WIN"
+				normalRightResult = "LOSE"
+			}else if(NLscore < NRscore){
+				normalLeftResult = "LOSE"
+				normalRightResult = "WIN"
+			}else if(NLscore == NRscore){
+				normalLeftResult = "TIE"
+				normalRightResult = "TIE"
+			}else{
+				normalLeftResult = "DRAW"
+				normalRightResult = "DRAW"
+			}
+      fill(0)
+      textSize(50)
+			text(normalRightResult, width/2 + 150,height/2.7)
+			text(normalLeftResult, width/2 - 150,height/2.7)
+			textSize(30)
+	text('Score: '+NRscore,width/2 + 150,height/2)
+	text('Score: '+NLscore,width/2 - 150,height/2) 
+      rect(width/2, height/2.5, 3, height/2.5)
+      home.update()
+        home.render()
+       restartNormalForTwo.update()
+       restartNormalForTwo.render()
+         if(home.pressed === true){
+         menu = 0
+       }
+       if(restartNormalForTwo.pressed === true){
+         resetVariables()
+         menu = 8
+       }
       break
     case 15: //result of 2 players' hard stage
       clear()
       backDrop()
+
+      if(HLscore > HRscore){
+				hardLeftResult = "WIN"
+				hardRightResult = "LOSE"
+			}else if(HLscore < HRscore){
+				hardLeftResult = "LOSE"
+				hardRightResult = "WIN"
+			}else if(HLscore == HRscore){
+				hardLeftResult = "TIE"
+				hardRightResult = "TIE"
+			}else{
+				hardLeftResult = "DRAW"
+				hardRightResult = "DRAW"
+			}
+      fill(0)
+      textSize(50)
+			text(hardRightResult, width/2 + 150,height/2.7)
+			text(hardLeftResult, width/2 - 150,height/2.7)
+			textSize(30)
+	text('Score: '+HRscore,width/2 + 150,height/2)
+	text('Score: '+HLscore,width/2 - 150,height/2) 
+      rect(width/2, height/2.5, 3, height/2.5)
+      home.update()
+        home.render()
+       restartHardForTwo.update()
+       restartHardForTwo.render()
+         if(home.pressed === true){
+         menu = 0
+       }
+       if(restartHardForTwo.pressed === true){
+         resetVariables()
+         menu = 9
+       }
       break
   }
 }
