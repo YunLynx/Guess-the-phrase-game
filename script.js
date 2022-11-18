@@ -1,7 +1,8 @@
 class Phrase {
-  constructor(phrase, hint) {
+  constructor(phrase, hint, secHint) {
     this.phrase = phrase;
     this.hint = hint;
+    this.secHint = secHint
   }
 }
 
@@ -114,36 +115,42 @@ menu = 0
   easyLeftTurn = true
   normalLeftTurn = true
   hardLeftTurn = true
+  gradeOneLeftTurn = true
 
   //highscore for easy, normal and hard of 1 player
   easyHighscore = 0
   normalHighscore = 0
   hardHighscore = 0
+  gradeOneHighscore = 0
   
   //buttons on home
 	player = new button(width/2, height/1.7, 120, 30, "1 Player",237, 126, 14)
   players = new button(width/2, height/1.5, 120, 30, "2 Players",237, 126, 14)
   instruction = new button(width/2, height/1.34, 120, 30, "Instruction",237, 126, 14)
 
-  //buttons && back button on 1 player
+  //buttons on 1 player
   easyForOnePlayer = new button(width/2 - 140, height/1.5, 120, 30, "Easy",237, 126, 14)
   normalForOnePlayer = new button(width/2, height/1.5, 120, 30, "Normal",237, 126, 14)
   hardForOnePlayer = new button(width/2 + 140, height/1.5, 120, 30, "Hard",237, 126, 14)
+  gradeOnePlayer = new button (width/2, height/1.5 - 70, 120, 30, "Grade 1", 237, 126, 14)
 
-  //buttons && back button on 2 players
+  //buttons on 2 players
   easyForTwoPlayers = new button(width/2 - 140, height/1.63, 120, 30, "Easy",237, 126, 14)
   normalForTwoPlayers = new button(width/2, height/1.63, 120, 30, "Normal",237, 126, 14)
   hardForTwoPlayers = new button(width/2 + 140, height/1.63, 120, 30, "Hard",237, 126, 14)
+  gradeOnePlayers = new button (width/2, height/1.63 - 50, 120, 30, "Grade 1", 237, 126, 14)
 
-//restart button on result of 1 player's easy, normal and hard stages
+//restart button on result of 1 player's easy, normal, hard and grade 1 stages
   restartEasyForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
   restartNormalForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
   restartHardForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
+  restartGradeOneP = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
 
-  //restart button on result of 2 players' easy, normal and hard stages
+  //restart button on result of 2 players' easy, normal, hard and grade 1 stages
   restartEasyForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
   restartNormalForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
   restartHardForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
+  restartGradeOnePs = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
   
   //back button on 1 player, 2 players and instruction
   back = new backButton (width/3.3, height/12, width/3.3, height/12 + 40, width/3.3 - 40, height/12 + 20, 237, 126, 14)
@@ -169,6 +176,8 @@ ERr = 50
 NRr = 50
 	HLr = 50
 HRr = 50
+  GLr = 50
+GRr = 50
 	
 ELh = 220
 ERh = 220
@@ -176,6 +185,8 @@ ERh = 220
 NRh = 220
 	HLh = 220
 HRh = 220
+  	GLh = 220
+GRh = 220
 	
 	ELy = 513 - 130
 ERy = 513 - 130
@@ -183,6 +194,8 @@ ERy = 513 - 130
 NRy = 513 - 130
 	HLy = 513 - 130
 HRy = 513 - 130
+  	GLy = 513 - 130
+GRy = 513 - 130
 	
 	ELscore = 0
 	ERscore = 0
@@ -190,14 +203,18 @@ HRy = 513 - 130
 	NRscore = 0
   HLscore = 0
 	HRscore = 0
+  GLscore = 0
+	GRscore = 0
   
 easyRightGuessOne = 0
   normalRightGuessOne = 0
   hardRightGuessOne = 0
+  gradeOneRightGuess = 0
   
   easyRightGuessTwo = 0
   normalRightGuessTwo = 0
   hardRightGuessTwo = 0
+  gradeOneRightGuessTwo = 0
   
   //time variables for easy, normal and hard stages on 1 player
   easyTotalTime = 300
@@ -206,23 +223,25 @@ easyRightGuessOne = 0
   normalRemainTime = normalTotalTime
   hardTotalTime = 210
   hardRemainTime = hardTotalTime
+  gradeOneTotalTime = 300
+  gradeOneRemainTime = gradeOneTotalTime
   sc_prev = -1
 
   //score variables
   topScore_time = 100
 
-  //phrases for easy, normal and hard stages in 1 player
+  //phrases for easy, normal, hard and grade 1 stages in 1 player
   easyPhrasesOne = [
-  new Phrase("forest", "A habitat"),
-  new Phrase("salmon", "A fish"),
-	 new Phrase("radish", "A vegetable"),
-    new Phrase("candle", "A object"),
-  new Phrase("turtle", "A reptile"),
-	 new Phrase("beaver", "A rodent"),
-    new Phrase("waiter", "A job"),
-  new Phrase("garlic", "A vegetable"),
-	 new Phrase("lawyer", "A job"),
-    new Phrase("yogurt", "A dairy product"),
+  new Phrase("forest", "A habitat", ""),
+  new Phrase("salmon", "A fish", ""),
+	 new Phrase("radish", "A vegetable", ""),
+    new Phrase("candle", "A object", ""),
+  new Phrase("turtle", "A reptile", ""),
+	 new Phrase("beaver", "A rodent", ""),
+    new Phrase("waiter", "A job", ""),
+  new Phrase("garlic", "A vegetable", ""),
+	 new Phrase("lawyer", "A job", ""),
+    new Phrase("yogurt", "A dairy product", ""),
 ];
   easyIndexOne = Math.floor(random(0, easyPhrasesOne.length))
   easyCurPhraseOne = easyPhrasesOne[easyIndexOne]
@@ -233,16 +252,16 @@ easyRightGuessOne = 0
   }
 
   normalPhrasesOne = [
-  new Phrase("head over heels", "Be in love"),
-  new Phrase("happy puppy", "It contains an animal"),
-	 new Phrase("as right as rain", "Feeling completely well"),
-    new Phrase("cool as a cucumber", "To be very calm and relaxed"),
-  new Phrase("eat like a bird", "It contains an animal"),
-	 new Phrase("pharmacist", "A job"),
-    new Phrase("flamingo", "A bird"),
-  new Phrase("bagpipe", "A musical instrument"),
-	 new Phrase("hibiscus", "A plant"),
-    new Phrase("leukaemia", "A disease"),
+  new Phrase("head over heels", "Be in love", ""),
+  new Phrase("happy puppy", "It contains an animal", ""),
+	 new Phrase("as right as rain", "Feeling completely well", ""),
+    new Phrase("cool as a cucumber", "To be very calm and relaxed", ""),
+  new Phrase("eat like a bird", "It contains an animal", ""),
+	 new Phrase("pharmacist", "A job", ""),
+    new Phrase("flamingo", "A bird", ""),
+  new Phrase("bagpipe", "A musical instrument", ""),
+	 new Phrase("hibiscus", "A plant", ""),
+    new Phrase("leukaemia", "A disease", ""),
 ];
    normalIndexOne = Math.floor(random(0, normalPhrasesOne.length))
   normalCurPhraseOne = normalPhrasesOne[normalIndexOne]
@@ -256,16 +275,16 @@ easyRightGuessOne = 0
   }
   
   hardPhrasesOne = [
-  new Phrase("keep an ear to the ground", ""),
-  new Phrase("snug as a bug in a rug", ""),
-	 new Phrase("throw caution to the wind", ""),
-    new Phrase("flesh and blood", ""),
-  new Phrase("bite the bullet", ""),
-	 new Phrase("dactylogram", ""),
-    new Phrase("bougainvillea", ""),
-  new Phrase("ecclesiarch", ""),
-	 new Phrase("fabulation", "A plant"),
-    new Phrase("jaguarundi", ""),
+  new Phrase("keep an ear to the ground", "", ""),
+  new Phrase("snug as a bug in a rug", "", ""),
+	 new Phrase("throw caution to the wind", "", ""),
+    new Phrase("flesh and blood", "", ""),
+  new Phrase("bite the bullet", "", ""),
+	 new Phrase("dactylogram", "", ""),
+    new Phrase("bougainvillea", "", ""),
+  new Phrase("ecclesiarch", "", ""),
+	 new Phrase("fabulation", "", ""),
+    new Phrase("jaguarundi", "", ""),
 ];
   hardIndexOne = Math.floor(random(0, hardPhrasesOne.length))
   hardCurPhraseOne = hardPhrasesOne[hardIndexOne]
@@ -278,18 +297,48 @@ easyRightGuessOne = 0
 		}
   }
 
-  //phrases for easy, normal and hard stages in 2 players
+  gradeOnePhrases = [
+  new Phrase("pencil", "", ""),
+  new Phrase("stove", "", ""),
+	 new Phrase("crayon", "", ""),
+    new Phrase("shape", "", ""),
+  new Phrase("flower", "", ""),
+	 new Phrase("table", "", ""),
+    new Phrase("pear", "A fruit", ""),
+  new Phrase("mango", "A fruit", ""),
+	 new Phrase("field", "", ""),
+    new Phrase("uncle", "", ""),
+    new Phrase("parent", "", ""),
+  new Phrase("notebook", "", ""),
+	 new Phrase("snail", "An animal", ""),
+    new Phrase("goldfish", "An animal", ""),
+  new Phrase("sister", "", ""),
+	 new Phrase("brother", "", ""),
+    new Phrase("jellyfish", "An animal", ""),
+  new Phrase("pancake", "A cake", "With thin and round"),
+	 new Phrase("butter", "", ""),
+    new Phrase("finger", "", ""),
+];
+  gradeOneIndex = Math.floor(random(0, gradeOnePhrases.length))
+  gradeOneCurPhrase = gradeOnePhrases[gradeOneIndex]
+  gradeOneGuess = []
+  gradeOneWrongGuesses = []
+  for (let e = 0; e < gradeOneCurPhrase.phrase.length; e++){
+    gradeOneGuess.push(gradeOneCurPhrase.phrase[e] == " " ? " " : "_")
+  }
+
+  //phrases for easy, normal, hard and grade 1 stages in 2 players
   easyPhrasesTwo = [
-  new Phrase("tennis", "A sport"),
-  new Phrase("prison", "A building"),
-	 new Phrase("hamster", "A rodent"),
-    new Phrase("cancer", "A disease"),
-  new Phrase("doctor", "A job"),
-	 new Phrase("germany", "A country"),
-    new Phrase("clover", "A plant"),
-  new Phrase("carbon", "A chemical element"),
-	 new Phrase("violin", "A musical instrument"),
-    new Phrase("monkey", "An animal"),
+  new Phrase("tennis", "A sport", ""),
+  new Phrase("prison", "A building", ""),
+	 new Phrase("hamster", "A rodent", ""),
+    new Phrase("cancer", "A disease", ""),
+  new Phrase("doctor", "A job", ""),
+	 new Phrase("germany", "A country", ""),
+    new Phrase("clover", "A plant", ""),
+  new Phrase("carbon", "A chemical element", ""),
+	 new Phrase("violin", "A musical instrument", ""),
+    new Phrase("monkey", "An animal", ""),
 ];
  easyIndexTwo = Math.floor(random(0, easyPhrasesTwo.length))
   easyCurPhraseTwo = easyPhrasesTwo[easyIndexTwo]
@@ -300,16 +349,16 @@ easyRightGuessOne = 0
   }
   
   normalPhrasesTwo = [
-  new Phrase("hummingbird", "A bird"),
-  new Phrase("albatross", "A bird"),
-	 new Phrase("pomegranate", "A fruit"),
-    new Phrase("baryonyx", "A dinosaur"),
-  new Phrase("hydroxide", "A polyatomic ion"),
-	 new Phrase("go down in flames", "To fail spectacularly"),
-    new Phrase("sit on the fence", "Avoid making a decision"),
-  new Phrase("miss the boat", "Be too slow to take advantage of an opportunity"),
-	 new Phrase("fair and square", "Honestly and straightforwardly"),
-    new Phrase("cry wolf", "It contains an animal"),
+  new Phrase("hummingbird", "A bird", ""),
+  new Phrase("albatross", "A bird", ""),
+	 new Phrase("pomegranate", "A fruit", ""),
+    new Phrase("baryonyx", "A dinosaur", ""),
+  new Phrase("hydroxide", "A polyatomic ion", ""),
+	 new Phrase("go down in flames", "To fail spectacularly", ""),
+    new Phrase("sit on the fence", "Avoid making a decision", ""),
+  new Phrase("miss the boat", "Be too slow to take advantage of an opportunity", ""),
+	 new Phrase("fair and square", "Honestly and straightforwardly", ""),
+    new Phrase("cry wolf", "It contains an animal", ""),
 ];
   normalIndexTwo = Math.floor(random(0, normalPhrasesTwo.length))
   normalCurPhraseTwo = normalPhrasesTwo[normalIndexTwo]
@@ -323,16 +372,16 @@ easyRightGuessOne = 0
   }
   
   hardPhrasesTwo = [
-  new Phrase("be easier said than done", ""),
-  new Phrase("kill two birds with one stone", ""),
-	 new Phrase("cassowaries", ""),
-    new Phrase("babingtonite", ""),
-  new Phrase("kaleidoscope", ""),
-	 new Phrase("omphalomancy", ""),
-    new Phrase("abandonment", ""),
-  new Phrase("wild goose chase", ""),
-	 new Phrase("break the bank", ""),
-    new Phrase("jump the gun", ""),
+  new Phrase("be easier said than done", "", ""),
+  new Phrase("kill two birds with one stone", "", ""),
+	 new Phrase("cassowaries", "", ""),
+    new Phrase("babingtonite", "", ""),
+  new Phrase("kaleidoscope", "", ""),
+	 new Phrase("omphalomancy", "", ""),
+    new Phrase("abandonment", "", ""),
+  new Phrase("wild goose chase", "", ""),
+	 new Phrase("break the bank", "", ""),
+    new Phrase("jump the gun", "", ""),
 ];
   hardIndexTwo = Math.floor(random(0, hardPhrasesTwo.length))
   hardCurPhraseTwo = hardPhrasesTwo[hardIndexTwo]
@@ -343,6 +392,36 @@ easyRightGuessOne = 0
     if(hardCurPhraseTwo.phrase[e] == " "){
 			hardRightGuessTwo = hardRightGuessTwo + 1
 		}
+  }
+  
+  gradeOnePhrasesTwo = [
+  new Phrase("rabbit", "An animal", "With two long ears"),
+  new Phrase("zebra", "An animal", "With white and black stripes"),
+	 new Phrase("grape", "A fruit", "With purple colour"),
+    new Phrase("scarf", "A type of clothes", "Wear around the neck"),
+  new Phrase("cherry", "A fruit", "With red color"),
+	 new Phrase("finger", "A part of the human body", "Connected to our hands"),
+    new Phrase("pig", "An animal", "With pink color"),
+  new Phrase("jeans", "A cloth", "A type of pants"),
+	 new Phrase("sweater", "A cloth", "Wear in winter"),
+    new Phrase("ladybug", "An insect", "With red and black color"),
+    new Phrase("frog", "An animal", "An amphibian"),
+  new Phrase("circle", "A shape", "With round"),
+	 new Phrase("crown", "A kind of jewelry", "A king wear it on their head"),
+    new Phrase("honey", "A type of sugar", "With yellow colour"),
+  new Phrase("fish", "An animal", "Live in the water"),
+	 new Phrase("donkey", "An animal", "With four legs"),
+    new Phrase("cheese", "A dairy food", "With yellow colour"),
+  new Phrase("chair", "A furniture", "People can sit on"),
+	 new Phrase("eggplant", "A fruit", "With purple colour"),
+    new Phrase("forest", "A habitat", "green"),
+];
+  gradeOneIndexTwo = Math.floor(random(0, gradeOnePhrasesTwo.length))
+  gradeOneCurPhraseTwo = gradeOnePhrasesTwo[gradeOneIndexTwo]
+  gradeOneGuessTwo = []
+  gradeOneWrongGuessesTwo = []
+  for (let e = 0; e < gradeOneCurPhraseTwo.phrase.length; e++){
+    gradeOneGuessTwo.push(gradeOneCurPhraseTwo.phrase[e] == " " ? " " : "_")
   }
 }
 
@@ -427,6 +506,28 @@ backDrop()
    leftEye.update()
   rightEye.update()
 	showProgress()
+}
+
+function gradeOneP(){
+backDrop()
+  //countdown timer for easy stage
+	sc = second()
+	imin = int(gradeOneRemainTime / 60)
+	isec = gradeOneRemainTime % 60
+	fill(0)
+	textSize(35)
+	textAlign(CENTER,CENTER)
+	text(imin+':'+isec,width/2,height/8)
+	if(sc!=sc_prev){
+		sc_prev=sc
+		gradeOneRemainTime = gradeOneRemainTime-1
+	}
+  //highscore
+	textAlign(CENTER,CENTER)
+	stroke(0)
+	fill(0)
+	textSize(25)
+	text('High Score: '+gradeOneHighscore , width/3,height/12)  
 }
 
 function easyTwoPlayers(){
@@ -522,6 +623,38 @@ arc(width/1.6,513,80,HRh,radians(180),radians(360))
   }
 }
 
+function gradeOnePs(){
+  backDrop()
+  fill(0)
+  //avatar on the left side
+	circle(width/2.65, GLy, GLr)
+arc(width/2.65,513,80,GLh,radians(180),radians(360))
+  //avatar on the right side
+  circle(width/1.6, GRy, GRr)
+arc(width/1.6,513,80,GRh,radians(180),radians(360))
+  //a line on the center
+  rect(width/2, height/1.24, 1, height/3)
+
+  if(gradeOneLeftTurn == true){
+    GLy = 513 - 130
+    GLr = 50
+    GLh = 220
+    
+		GRy = 513 - 70
+		GRr = 40
+		GRh = 100
+	}else{
+    GRy = 513 - 130
+		GRr = 50
+		GRh = 220
+
+    GLy = 513 - 70
+    GLr = 40
+    GLh = 100
+  }
+}
+
+
 function showProgress(){
 		switch(f){
 			case 0:	
@@ -557,7 +690,7 @@ function showProgress(){
 
 function keyPressed(){
   //if spacebar is pressed, pause and restart
-	if(menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9){
+	if(menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9 || menu == 16 || menu == 17){
   if(keyCode === 32){
     if(currentStatus == true){
       noLoop()
@@ -574,7 +707,7 @@ function keyPressed(){
   }
   
   if(key >= 'a' && key <= 'z'){
-    if(menu == 4){
+    if(menu == 4){ //1 player's easy stage
     
     let easyResultOne = []
     let easyPhraseOne = easyCurPhraseOne.phrase
@@ -611,7 +744,7 @@ function keyPressed(){
 			}
 		}
   }
-  if(menu == 5){
+  if(menu == 5){ //1 player's normal stage
     let normalResultOne = []
     let normalPhraseOne = normalCurPhraseOne.phrase
     for(let e = 0; e < normalPhraseOne.length; e++){
@@ -647,7 +780,7 @@ function keyPressed(){
 			}
 		}
   }
-    if(menu == 6){
+    if(menu == 6){ //1 player's hard stage
      let hardResultOne = []
     let hardPhraseOne = hardCurPhraseOne.phrase
     for(let e = 0; e < hardPhraseOne.length; e++){
@@ -684,7 +817,7 @@ function keyPressed(){
 		}
 }
     
-    if(menu == 7){
+    if(menu == 7){ //2 players' easy stage
     let easyResultTwo = []
     let easyPhraseTwo = easyCurPhraseTwo.phrase
     for(let e = 0; e < easyPhraseTwo.length; e++){
@@ -721,7 +854,7 @@ function keyPressed(){
 		}
       }
       
-      if(menu == 8){
+      if(menu == 8){ //2 players' normal stage
     let normalResultTwo = []
     let normalPhraseTwo = normalCurPhraseTwo.phrase
     for(let e = 0; e < normalPhraseTwo.length; e++){
@@ -758,7 +891,7 @@ function keyPressed(){
 		}
       }
 
-        if(menu == 9){
+        if(menu == 9){ //2 players' hard stage
     let hardResultTwo = []
     let hardPhraseTwo = hardCurPhraseTwo.phrase
     for(let e = 0; e < hardPhraseTwo.length; e++){
@@ -794,15 +927,80 @@ function keyPressed(){
 			text("NO MATCH!", width/2, height/4 + 120)
 		}
   }
+
+    if(menu == 16){ //1 player's grade 1 stage
+    
+    let gradeOneResult = []
+    let gradeOnePhrase = gradeOneCurPhrase.phrase
+    for(let e = 0; e < gradeOnePhrase.length; e++){
+      if(gradeOnePhrase[e] === key && gradeOneGuess[e] === "_"){
+        gradeOneResult.push(e)
+        gradeOneGuess[e] = key
+				gradeOneRightGuess = gradeOneRightGuess + 1
+      }
+    }
+  if (gradeOneResult.length > 0) {
+    
+		}
+		else if(gradeOneWrongGuesses.includes(key)){
+			textSize(25)
+			text("You already guessed that.", width/2, height/1.5);
+       gradeOneRemainTime = gradeOneRemainTime - 40
+		}
+		else{
+		 gradeOneWrongGuesses.push(key)
+			textSize(25)
+			text("NO MATCH!", width/2, height/1.5)
+       gradeOneRemainTime = gradeOneRemainTime - 30
+		}
+}
+
+    if(menu == 17){ //2 players' grade 1 stage
+    
+    let gradeOneResultTwo = []
+    let gradeOnePhraseTwo = gradeOneCurPhraseTwo.phrase
+    for(let e = 0; e < gradeOnePhraseTwo.length; e++){
+      if(gradeOnePhraseTwo[e] === key && gradeOneGuessTwo[e] === "_"){
+        gradeOneResultTwo.push(e)
+        gradeOneGuessTwo[e] = key
+				gradeOneRightGuessTwo = gradeOneRightGuessTwo + 1
+      }
+    }
+  if (gradeOneResultTwo.length > 0) {
+    if(gradeOneLeftTurn == true){
+					GLscore = GLscore + 1
+      }else{
+				GRscore = GRscore + 1
+			}
+		}
+		else if(gradeOneWrongGuessesTwo.includes(key)){
+      if(gradeOneLeftTurn == true){
+				gradeOneLeftTurn = false
+			}else{
+				gradeOneLeftTurn = true
+			}
+			textSize(25)
+			text("You already guessed that.", width/2, height/4 + 150);
+    
+		}else if(gradeOneWrongGuessesTwo.push(key)){
+      if(gradeOneLeftTurn == true){
+			gradeOneLeftTurn = false
+			}else{
+				gradeOneLeftTurn = true
+			}
+			textSize(25)
+			text("NO MATCH!", width/2, height/4 + 150)
+		}
+}
   }
 }
 
 function draw() {
   clear()
-  if(menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9){
+  if(menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9 || menu == 16 || menu == 17){
 	frameRate(1)
 	}
-  if(menu == 10 || menu == 11 || menu == 12 || menu == 13 || menu == 14 || menu == 15){
+  if(menu == 10 || menu == 11 || menu == 12 || menu == 13 || menu == 14 || menu == 15 || menu == 18 || menu == 19){
     frameRate(30)
   }
   switch(menu){
@@ -847,6 +1045,8 @@ backDrop()
       normalForOnePlayer.render()
       hardForOnePlayer.update()
       hardForOnePlayer.render()
+      gradeOnePlayer.update()
+      gradeOnePlayer.render()
       back.update()
       back.render()
       
@@ -861,6 +1061,10 @@ backDrop()
       if(hardForOnePlayer.pressed === true){
          resetVariables()
         menu = 6
+      }
+      if(gradeOnePlayer.pressed === true){
+        resetVariables()
+        menu = 16
       }
       if(back.pressed === true){
         menu = 0
@@ -881,6 +1085,8 @@ backDrop()
       normalForTwoPlayers.render()
       hardForTwoPlayers.update()
       hardForTwoPlayers.render()
+      gradeOnePlayers.update()
+      gradeOnePlayers.render()
       back.update()
       back.render()
       
@@ -895,6 +1101,10 @@ backDrop()
       if(hardForTwoPlayers.pressed === true){
          resetVariables()
         menu = 9
+      }
+      if(gradeOnePlayers.pressed === true){
+        resetVariables()
+        menu = 17
       }
       if(back.pressed === true){
         menu = 0
@@ -1293,5 +1503,133 @@ backDrop()
          menu = 9
        }
       break
+  case 16: //Grade 1 stage for 1 player
+  clear()
+gradeOneP()
+  fill(0,0,0)
+	textSize(40);
+  text(gradeOneGuess.join(" "), width/2, height/3);
+  textSize(20)
+        text(`Hint: ${gradeOneCurPhrase.hint}`, width/2, height/2 - 20)
+      if(gradeOneWrongGuesses.length > 2){
+        fill(0)
+        textSize(18)
+        text(`Hint: ${gradeOneCurPhrase.secHint}`, width/2, height/2 + 10)
+      }
+  textSize(20)
+	fill(255,0,0)
+	text(gradeOneWrongGuesses.join(" "), width/2, height/2 + 40)
+      if(gradeOneRightGuess == gradeOneCurPhrase.phrase.length){
+				menu = 18
+			}
+      if(gradeOneRemainTime < 1){
+        menu = 18
+      }
+  break
+  case 17: //Grade 1 stage for 2 players
+clear()
+gradeOnePs()
+  fill(0,0,0)
+	textSize(50);
+	text(gradeOneGuessTwo.join(" "), width/2, height/4);
+	textSize(20)
+      text(`Hint: ${gradeOneCurPhraseTwo.hint}`, width/2, height/4 + 60)
+  if(gradeOneWrongGuessesTwo.length > 2){
+        fill(0)
+        textSize(18)
+        text(`Hint: ${gradeOneCurPhraseTwo.secHint}`, width/2, height/4 + 90)
+      }
+	fill(255,0,0)
+	text(gradeOneWrongGuessesTwo.join(" "), width/2, height/4 + 120)
+      if(gradeOneRightGuessTwo == gradeOneCurPhraseTwo.phrase.length){
+        GLscore *= 10
+				GRscore *= 10
+				menu = 19
+			}
+  break
+  case 18: //Result of 1 player's grade 1 stage
+clear()
+backDrop()
+   gradeOneScore = gradeOneRemainTime * 100 / topScore_time
+      
+     if(gradeOneScore < 1) {
+       textAlign(CENTER)
+      textSize(50)
+      fill(0)
+      text("Game Over", width/2, height/4)
+       textSize(40)
+       text('Score: '+gradeOneScore, width/2, height/2)
+       home.update()
+        home.render()
+       restartGradeOneP.update()
+       restartGradeOneP.render()
+       if(home.pressed === true){
+         menu = 0
+       }
+       if(restartGradeOneP.pressed === true){
+         resetVariables()
+         menu = 16
+       }
+     }
+      if(gradeOneScore > 1) {
+       textAlign(CENTER)
+      textSize(50)
+      fill(0)
+      text("Clear", width/2, height/4)
+        textSize(40)
+       text('Score: '+gradeOneScore, width/2, height/2)
+        home.update()
+        home.render()
+        restartGradeOneP.update()
+       restartGradeOneP.render()
+        if(gradeOneHighscore < gradeOneScore){
+          gradeOneHighscore = gradeOneScore
+        }
+         if(home.pressed === true){
+         menu = 0
+       }
+        if(restartGradeOneP.pressed === true){
+         resetVariables()
+         menu = 16
+       }
+     }
+  break
+  case 19: //Result of 2 players' grade 1 stage
+clear()
+backDrop()
+
+  if(GLscore>GRscore){
+				gradeOneLeftResult="WIN"
+				gradeOneRightResult="LOSE"
+			}else if(GLscore<GRscore){
+				gradeOneLeftResult="LOSE"
+				gradeOneRightResult="WIN"
+			}else if(GLscore==GRscore){
+				gradeOneLeftResult="TIE"
+				gradeOneRightResult="TIE"
+			}else{
+				gradeOneLeftResult="DRAW"
+				gradeOneRightResult="DRAW"
+			}
+      fill(0)
+      textSize(50)
+			text(gradeOneRightResult, width/2 + 150,height/2.7)
+			text(gradeOneLeftResult, width/2 - 150,height/2.7)
+			textSize(30)
+	text('Score: '+GRscore,width/2 + 150,height/2)
+	text('Score: '+GLscore,width/2 - 150,height/2)
+      rect(width/2, height/2.5, 3, height/2.5)
+      home.update()
+        home.render()
+       restartGradeOnePs.update()
+       restartGradeOnePs.render()
+         if(home.pressed === true){
+         menu = 0
+       }
+       if(restartGradeOnePs.pressed === true){
+         resetVariables()
+         menu = 17
+       }
+  break
   }
 }
