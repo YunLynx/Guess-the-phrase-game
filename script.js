@@ -6,14 +6,36 @@ class Phrase {
   }
 }
 
+class snow{
+constructor(x, y, ySpeed, w, r, g, b, s){
+		this.x = x
+		this.y = y
+		this.ySpeed = ySpeed
+		this.w = w
+		this.Color = color(r,g,b)
+  this.s = s
+	}
+	fall(){
+		this.y += this.ySpeed
+		stroke(this.s)
+		fill(this.Color)
+		circle(this.x, this.y, this.w)
+		if(this.y > height/2 + 230){
+			this.y = height/2 - 230
+      this.x = random(width/2 - 280, width/2 + 280)
+		}
+	}
+}
+
 class button {
-	constructor(x,y,w,h,text,r,g,b) {
+	constructor(x,y,w,h,text,r,g,b,s) {
 		this.posX = x
 		this.posY = y
 		this.w = w
 		this.h = h
 		this.text = text
 		this.Color = color(r,g,b)
+    this.s = s
 		
 		this.pressed = false
 		this.inside = false
@@ -37,6 +59,7 @@ class button {
 			fill(255)
 		}else {
 		fill(this.Color)
+      stroke(this.s)
 		}
     rectMode(CENTER)
 		rect(this.posX, this.posY, this.w, this.h)
@@ -124,39 +147,39 @@ menu = 0
   gradeOneHighscore = 0
   
   //buttons on home
-	player = new button(width/2, height/1.7, 120, 30, "1 Player",237, 126, 14)
-  players = new button(width/2, height/1.5, 120, 30, "2 Players",237, 126, 14)
-  instruction = new button(width/2, height/1.34, 120, 30, "Instruction",237, 126, 14)
+	player = new button(width/2, height/1.7, 120, 30, "1 Player",237, 126, 14, 0)
+  players = new button(width/2, height/1.5, 120, 30, "2 Players",237, 126, 14, 0)
+  instruction = new button(width/2, height/1.34, 120, 30, "Instruction",237, 126, 14, 0)
 
   //buttons on 1 player
-  easyForOnePlayer = new button(width/2 - 140, height/1.5, 120, 30, "Easy",237, 126, 14)
-  normalForOnePlayer = new button(width/2, height/1.5, 120, 30, "Normal",237, 126, 14)
-  hardForOnePlayer = new button(width/2 + 140, height/1.5, 120, 30, "Hard",237, 126, 14)
-  gradeOnePlayer = new button (width/2, height/1.5 - 70, 120, 30, "Grade 1", 237, 126, 14)
+  easyForOnePlayer = new button(width/2 - 140, height/1.5, 120, 30, "Easy",237, 126, 14, 0)
+  normalForOnePlayer = new button(width/2, height/1.5, 120, 30, "Normal",237, 126, 14, 0)
+  hardForOnePlayer = new button(width/2 + 140, height/1.5, 120, 30, "Hard",237, 126, 14, 0)
+  gradeOnePlayer = new button (width/2, height/1.5 - 70, 120, 30, "Grade 1", 237, 126, 14, 0)
 
   //buttons on 2 players
-  easyForTwoPlayers = new button(width/2 - 140, height/1.63, 120, 30, "Easy",237, 126, 14)
-  normalForTwoPlayers = new button(width/2, height/1.63, 120, 30, "Normal",237, 126, 14)
-  hardForTwoPlayers = new button(width/2 + 140, height/1.63, 120, 30, "Hard",237, 126, 14)
-  gradeOnePlayers = new button (width/2, height/1.63 - 50, 120, 30, "Grade 1", 237, 126, 14)
+  easyForTwoPlayers = new button(width/2 - 140, height/1.63, 120, 30, "Easy",237, 126, 14, 0)
+  normalForTwoPlayers = new button(width/2, height/1.63, 120, 30, "Normal",237, 126, 14, 0)
+  hardForTwoPlayers = new button(width/2 + 140, height/1.63, 120, 30, "Hard",237, 126, 14, 0)
+  gradeOnePlayers = new button (width/2, height/1.63 - 50, 120, 30, "Grade 1", 237, 126, 14, 0)
 
 //restart button on result of 1 player's easy, normal, hard and grade 1 stages
-  restartEasyForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
-  restartNormalForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
-  restartHardForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
-  restartGradeOneP = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
+  restartEasyForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14, 0)
+  restartNormalForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14, 0)
+  restartHardForOne = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14, 0)
+  restartGradeOneP = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14, 0)
 
   //restart button on result of 2 players' easy, normal, hard and grade 1 stages
-  restartEasyForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
-  restartNormalForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
-  restartHardForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
-  restartGradeOnePs = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14)
+  restartEasyForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14, 0)
+  restartNormalForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14, 0)
+  restartHardForTwo = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14, 0)
+  restartGradeOnePs = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14, 0)
   
   //back button on 1 player, 2 players and instruction
   back = new backButton (width/3.3, height/12, width/3.3, height/12 + 40, width/3.3 - 40, height/12 + 20, 237, 126, 14)
 
   //home button on both easy, normal, hard stages of 1 player and 2 players
-  home = new button (width/2 - 80, height/1.25, 120, 30, "Home", 237, 126, 14)
+  home = new button (width/2 - 80, height/1.25, 120, 30, "Home", 237, 126, 14, 0)
 
     //face
 	face = new ball(width/1.45, height/1.15, 70, 247,250,72)
@@ -165,6 +188,16 @@ menu = 0
   leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
   //right eye
    rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+
+  s = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
+	s1 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
+	s2 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
+	s3 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
+	s4 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
+	s5 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
+	s6 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
+	s7 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
+	s8 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
 }
 
 function resetVariables(){
@@ -298,26 +331,26 @@ easyRightGuessOne = 0
   }
 
   gradeOnePhrases = [
-  new Phrase("pencil", "", ""),
-  new Phrase("stove", "", ""),
-	 new Phrase("crayon", "", ""),
-    new Phrase("shape", "", ""),
-  new Phrase("flower", "", ""),
-	 new Phrase("table", "", ""),
-    new Phrase("pear", "A fruit", ""),
-  new Phrase("mango", "A fruit", ""),
-	 new Phrase("field", "", ""),
-    new Phrase("uncle", "", ""),
-    new Phrase("parent", "", ""),
-  new Phrase("notebook", "", ""),
-	 new Phrase("snail", "An animal", ""),
-    new Phrase("goldfish", "An animal", ""),
-  new Phrase("sister", "", ""),
-	 new Phrase("brother", "", ""),
-    new Phrase("jellyfish", "An animal", ""),
+  new Phrase("pencil", "An object", "Used for writing or drawing"),
+  new Phrase("stove", "An object in the kitchen", "Used for cooking"),
+	 new Phrase("crayon", "An object", "Used for drawing"),
+    new Phrase("clock", "An electrical device", "Used for measuring time"),
+  new Phrase("horse", "An animal", "Used for riding or racing"),
+	 new Phrase("table", "A furniture", "With a flat top"),
+    new Phrase("pear", "A fruit", "With green colour"),
+  new Phrase("mango", "A fruit", "With yellow colour"),
+	 new Phrase("rainbow", "A natural phenomena", "With seven colours"),
+    new Phrase("uncle", "A name of relatives", "The brother of one's father"),
+    new Phrase("apple", "A fruit", "With red or green colour"),
+  new Phrase("notebook", "An object", "Used for writing notes"),
+	 new Phrase("snail", "An animal", "With a shell"),
+    new Phrase("goldfish", "A fish", "With orange colour"),
+  new Phrase("goose", "A bird", "With a long neck"),
+	 new Phrase("grass", "A plant", "Can see everywhere"),
+    new Phrase("jellyfish", "An animal", "With a transparent body"),
   new Phrase("pancake", "A cake", "With thin and round"),
-	 new Phrase("butter", "", ""),
-    new Phrase("finger", "", ""),
+	 new Phrase("butter", "A dairy product", "With yellow colour"),
+    new Phrase("ice cream", "A dairy product", "Usually it in summer"),
 ];
   gradeOneIndex = Math.floor(random(0, gradeOnePhrases.length))
   gradeOneCurPhrase = gradeOnePhrases[gradeOneIndex]
@@ -399,22 +432,22 @@ easyRightGuessOne = 0
   new Phrase("zebra", "An animal", "With white and black stripes"),
 	 new Phrase("grape", "A fruit", "With purple colour"),
     new Phrase("scarf", "A type of clothes", "Wear around the neck"),
-  new Phrase("cherry", "A fruit", "With red color"),
-	 new Phrase("finger", "A part of the human body", "Connected to our hands"),
-    new Phrase("pig", "An animal", "With pink color"),
+  new Phrase("cherry", "A fruit", "With red colour"),
+	 new Phrase("finger", "A part of the human body", "Connected to the hands"),
+    new Phrase("pig", "An animal", "With pink colour"),
   new Phrase("jeans", "A cloth", "A type of pants"),
 	 new Phrase("sweater", "A cloth", "Wear in winter"),
-    new Phrase("ladybug", "An insect", "With red and black color"),
+    new Phrase("ladybug", "An insect", "With red and black colour"),
     new Phrase("frog", "An animal", "An amphibian"),
   new Phrase("circle", "A shape", "With round"),
-	 new Phrase("crown", "A kind of jewelry", "A king wear it on their head"),
-    new Phrase("honey", "A type of sugar", "With yellow colour"),
+	 new Phrase("crown", "A kind of hat", "A king wears it"),
+    new Phrase("calculator", "An electronic device", "Used for calculating"),
   new Phrase("fish", "An animal", "Live in the water"),
 	 new Phrase("donkey", "An animal", "With four legs"),
     new Phrase("cheese", "A dairy food", "With yellow colour"),
   new Phrase("chair", "A furniture", "People can sit on"),
-	 new Phrase("eggplant", "A fruit", "With purple colour"),
-    new Phrase("forest", "A habitat", "green"),
+	 new Phrase("eggplant", "A vegetable", "With purple colour"),
+    new Phrase("polar bear", "An animal", "Live in the Arctic"),
 ];
   gradeOneIndexTwo = Math.floor(random(0, gradeOnePhrasesTwo.length))
   gradeOneCurPhraseTwo = gradeOnePhrasesTwo[gradeOneIndexTwo]
@@ -515,6 +548,7 @@ backDrop()
 	imin = int(gradeOneRemainTime / 60)
 	isec = gradeOneRemainTime % 60
 	fill(0)
+  stroke(0)
 	textSize(35)
 	textAlign(CENTER,CENTER)
 	text(imin+':'+isec,width/2,height/8)
@@ -1550,11 +1584,21 @@ gradeOnePs()
   case 18: //Result of 1 player's grade 1 stage
 clear()
 backDrop()
+      s.fall()
+	s1.fall()
+	s2.fall()
+	s3.fall()
+	s4.fall()
+	s5.fall()
+	s6.fall()
+	s7.fall()
+	s8.fall()
    gradeOneScore = gradeOneRemainTime * 100 / topScore_time
       
      if(gradeOneScore < 1) {
        textAlign(CENTER)
       textSize(50)
+       stroke(0)
       fill(0)
       text("Game Over", width/2, height/4)
        textSize(40)
@@ -1574,6 +1618,7 @@ backDrop()
       if(gradeOneScore > 1) {
        textAlign(CENTER)
       textSize(50)
+        stroke(0)
       fill(0)
       text("Clear", width/2, height/4)
         textSize(40)
@@ -1597,7 +1642,7 @@ backDrop()
   case 19: //Result of 2 players' grade 1 stage
 clear()
 backDrop()
-
+      
   if(GLscore>GRscore){
 				gradeOneLeftResult="WIN"
 				gradeOneRightResult="LOSE"
@@ -1612,6 +1657,7 @@ backDrop()
 				gradeOneRightResult="DRAW"
 			}
       fill(0)
+      stroke(0)
       textSize(50)
 			text(gradeOneRightResult, width/2 + 150,height/2.7)
 			text(gradeOneLeftResult, width/2 - 150,height/2.7)
