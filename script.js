@@ -27,6 +27,46 @@ constructor(x, y, ySpeed, w, r, g, b, s){
 	}
 }
 
+class leftRain{
+	constructor(x, y, w, h, ySpeed, Stroke){
+		this.x = x
+		this.y = y
+		this.w = w
+		this.h = h
+		this.ySpeed = ySpeed
+		this.Stroke = Stroke
+	}
+	fall(){
+		this.y+=this.ySpeed
+		stroke(this.Stroke)
+		rect(this.x, this.y, this.w, this.h)
+		if(this.y > height/2 + 95){
+			this.y = height/2 - 25
+      this.x = random(width/2 - 100, width/2 - 200)
+		}
+	}
+}
+
+class rightRain{
+	constructor(x, y, w, h, ySpeed, Stroke){
+		this.x = x
+		this.y = y
+		this.w = w
+		this.h = h
+		this.ySpeed = ySpeed
+		this.Stroke = Stroke
+	}
+	fall(){
+		this.y+=this.ySpeed
+		stroke(this.Stroke)
+		rect(this.x, this.y, this.w, this.h)
+		if(this.y > height/2 + 95){
+			this.y = height/2 - 25
+      this.x = random(width/2 + 100, width/2 + 200)
+		}
+	}
+}
+
 class button {
 	constructor(x,y,w,h,text,r,g,b,s) {
 		this.posX = x
@@ -189,6 +229,7 @@ menu = 0
   //right eye
    rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
 
+  //snow on result of 1 player's grade 1 stage
   s = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
 	s1 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
 	s2 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
@@ -198,6 +239,24 @@ menu = 0
 	s6 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
 	s7 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
 	s8 = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
+
+  //rain on result of 2 players' grade 1 stage
+  //left
+  leftR1 = new leftRain (random(width/2 - 100, width/2 - 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+   leftR2 = new leftRain (random(width/2 - 100, width/2 - 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+   leftR3 = new leftRain (random(width/2 - 100, width/2 - 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+   leftR4 = new leftRain (random(width/2 - 100, width/2 - 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+  leftR5 = new leftRain (random(width/2 - 100, width/2 - 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+  leftR6 = new leftRain (random(width/2 - 100, width/2 - 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+  leftR7 = new leftRain (random(width/2 - 100, width/2 - 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+  //right
+   rightR1 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+   rightR2 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+   rightR3 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+   rightR4 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+  rightR5 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+  rightR6 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+  rightR7 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
 }
 
 function resetVariables(){
@@ -282,6 +341,9 @@ easyRightGuessOne = 0
   easyWrongGuessesOne = []
   for (let e = 0; e < easyCurPhraseOne.phrase.length; e++){
     easyGuessOne.push(easyCurPhraseOne.phrase[e] == " " ? " " : "_")
+    if(easyCurPhraseOne.phrase[e] == " "){
+			easyRightGuessOne = easyRightGuessOne + 1
+		}
   }
 
   normalPhrasesOne = [
@@ -358,6 +420,9 @@ easyRightGuessOne = 0
   gradeOneWrongGuesses = []
   for (let e = 0; e < gradeOneCurPhrase.phrase.length; e++){
     gradeOneGuess.push(gradeOneCurPhrase.phrase[e] == " " ? " " : "_")
+    if(gradeOneCurPhrase.phrase[e] == " "){
+			gradeOneRightGuess = gradeOneRightGuess + 1
+		}
   }
 
   //phrases for easy, normal, hard and grade 1 stages in 2 players
@@ -379,6 +444,9 @@ easyRightGuessOne = 0
   easyWrongGuessesTwo = []
   for (let e = 0; e < easyCurPhraseTwo.phrase.length; e++){
     easyGuessTwo.push(easyCurPhraseTwo.phrase[e] == " " ? " " : "_")
+    if(easyCurPhraseTwo.phrase[e] == " "){
+			easyRightGuessTwo = easyRightGuessTwo + 1
+    }
   }
   
   normalPhrasesTwo = [
@@ -454,7 +522,10 @@ easyRightGuessOne = 0
   gradeOneGuessTwo = []
   gradeOneWrongGuessesTwo = []
   for (let e = 0; e < gradeOneCurPhraseTwo.phrase.length; e++){
-    gradeOneGuessTwo.push(gradeOneCurPhraseTwo.phrase[e] == " " ? " " : "_")
+gradeOneGuessTwo.push(gradeOneCurPhraseTwo.phrase[e] == " " ? " " : "_")
+    if(gradeOneCurPhraseTwo.phrase[e] == " "){
+			gradeOneRightGuessTwo = gradeOneRightGuessTwo + 1
+		}
   }
 }
 
@@ -1646,12 +1717,52 @@ backDrop()
   if(GLscore>GRscore){
 				gradeOneLeftResult="WIN"
 				gradeOneRightResult="LOSE"
+    fill(0)
+    //left
+    circle(width/2 - 150, height/2 - 30, 60)
+arc(width/2 - 150,height/2 + 105,90,230,radians(180),radians(360))
+    //right
+    circle(width/2 + 150, height/2 + 38, 40)
+arc(width/2 + 150,height/2 + 105,75,100,radians(180),radians(360))
+    
+    rightR1.fall()
+     rightR2.fall()
+     rightR3.fall()
+     rightR4.fall()
+     rightR5.fall()
+     rightR6.fall()
+     rightR7.fall()
+    
 			}else if(GLscore<GRscore){
 				gradeOneLeftResult="LOSE"
 				gradeOneRightResult="WIN"
+    fill(0)
+    //left
+     circle(width/2 - 150, height/2 + 38, 40)
+arc(width/2 - 150,height/2 + 105,75,100,radians(180),radians(360))
+    //right
+   circle(width/2 + 150, height/2 - 30, 60)
+arc(width/2 + 150,height/2 + 105,90,230,radians(180),radians(360))
+  
+    leftR1.fall()
+     leftR2.fall()
+     leftR3.fall()
+     leftR4.fall()
+    leftR5.fall()
+    leftR6.fall()
+    leftR7.fall()
+    
 			}else if(GLscore==GRscore){
 				gradeOneLeftResult="TIE"
 				gradeOneRightResult="TIE"
+    fill(0)
+    //left
+    circle(width/2 - 150, height/2 - 15, 50)
+arc(width/2 - 150,height/2 + 105,80,200,radians(180),radians(360))
+    //right
+     circle(width/2 + 150, height/2 - 15, 50)
+arc(width/2 + 150,height/2 + 105,80,200,radians(180),radians(360))
+    
 			}else{
 				gradeOneLeftResult="DRAW"
 				gradeOneRightResult="DRAW"
@@ -1659,12 +1770,13 @@ backDrop()
       fill(0)
       stroke(0)
       textSize(50)
-			text(gradeOneRightResult, width/2 + 150,height/2.7)
-			text(gradeOneLeftResult, width/2 - 150,height/2.7)
+			text(gradeOneRightResult, width/2 + 150,height/2 - 170)
+			text(gradeOneLeftResult, width/2 - 150,height/2 - 170)
 			textSize(30)
-	text('Score: '+GRscore,width/2 + 150,height/2)
-	text('Score: '+GLscore,width/2 - 150,height/2)
-      rect(width/2, height/2.5, 3, height/2.5)
+	text('Score: '+GRscore,width/2 + 150,height/2 - 120)
+	text('Score: '+GLscore,width/2 - 150,height/2 - 120)
+      rectMode(CORNER)
+      rect(width/2, height/2 - 160, 3, height/2)
       home.update()
         home.render()
        restartGradeOnePs.update()
