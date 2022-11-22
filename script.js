@@ -67,6 +67,52 @@ class rightRain{
 	}
 }
 
+class leftBalloon{
+	constructor(x, y, w, h, ySpeed, r,g,b){
+		this.x = x
+		this.y = y
+		this.w = w
+		this.h = h
+		this.ySpeed = ySpeed
+		this.Color = color(r,g,b)
+	}
+	up(){
+		this.y -= this.ySpeed
+		fill(this.Color)
+		noStroke()
+		ellipse(this.x, this.y, this.w, this.h)
+		triangle(this.x, this.y + this.h / 2, this.x + 10, this.y + (this.h / 2 + 10), this.x - 10, this.y + (this.h / 2 + 10))
+		if(this.y < height/2 - 55){
+			this.y = height/2 + 85
+      this.x = random(width/2 - 90, width/2 - 210)
+		}
+	}
+}
+
+class rightBalloon{
+	constructor(x, y, w, h, ySpeed, r,g,b){
+		this.x = x
+		this.y = y
+		this.w = w
+		this.h = h
+		this.ySpeed = ySpeed
+		this.Color = color(r,g,b)
+	}
+	up(){
+		this.y -= this.ySpeed
+		fill(this.Color)
+		noStroke()
+		ellipse(this.x, this.y, this.w, this.h)
+		triangle(this.x, this.y + this.h / 2, this.x + 10, this.y + (this.h / 2 + 10), this.x - 10, this.y + (this.h / 2 + 10))
+		if(this.y < height/2 - 55){
+			this.y = height/2 + 85
+      this.x = random(width/2 + 90, width/2 + 210)
+		}
+	}
+}
+
+
+
 class button {
 	constructor(x,y,w,h,text,r,g,b,s) {
 		this.posX = x
@@ -257,6 +303,18 @@ menu = 0
   rightR5 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
   rightR6 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
   rightR7 = new rightRain (random(width/2 + 100, width/2 + 200), random(height/2 - 25, height/2 + 95), 0.5, 30, 2, 150)
+
+  //balloons on the result of 2 players' grade 1 stage
+  //left
+  leftB1 = new leftBalloon(random(width/2 - 90, width/2 - 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+  leftB2 = new leftBalloon(random(width/2 - 90, width/2 - 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+  leftB3 = new leftBalloon(random(width/2 - 90, width/2 - 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100, 500), random(100, 500), random(100, 500))
+    leftB4 = new leftBalloon(random(width/2 - 90, width/2 - 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+  //right
+   rightB1 = new rightBalloon(random(width/2 + 90, width/2 + 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+  rightB2 = new rightBalloon(random(width/2 + 90, width/2 + 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))   
+    rightB3 = new rightBalloon(random(width/2 + 90, width/2 + 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+   rightB4 = new rightBalloon(random(width/2 + 90, width/2 + 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
 }
 
 function resetVariables(){
@@ -1717,6 +1775,12 @@ backDrop()
   if(GLscore>GRscore){
 				gradeOneLeftResult="WIN"
 				gradeOneRightResult="LOSE"
+
+leftB1.up()
+     leftB2.up()
+     leftB3.up()
+     leftB4.up()
+    
     fill(0)
     //left
     circle(width/2 - 150, height/2 - 30, 60)
@@ -1736,6 +1800,12 @@ arc(width/2 + 150,height/2 + 105,75,100,radians(180),radians(360))
 			}else if(GLscore<GRscore){
 				gradeOneLeftResult="LOSE"
 				gradeOneRightResult="WIN"
+
+     rightB1.up()
+    rightB2.up()
+    rightB3.up()
+    rightB4.up()
+    
     fill(0)
     //left
      circle(width/2 - 150, height/2 + 38, 40)
