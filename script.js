@@ -246,6 +246,23 @@ update() {
 	}
 }
 
+      class snot{
+	constructor(x,y,w,h,r,g,b,s){
+		this.x = x
+		this.y = y
+		this.w = w
+		this.h = h
+		this.Color = color(r,g,b)
+		this.stroke = s
+	}
+	update(){
+		fill(this.Color)
+		stroke(this.stroke)
+		ellipse(this.x, this.y, this.w, this.h)
+		triangle(this.x - this.w / 2, this.y, this.x, this.y - this.h, this.x + this.w / 2, this.y)
+	}
+}
+
 function backDrop(){
   rectMode(CENTER)
 fill(207, 228, 230)
@@ -361,6 +378,9 @@ menu = 0
 
   rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
   leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
+
+  leftSnot = new snot(width/2 - 144, height/2 + 210, 5, 25, 255,255,255,255)
+  rightSnot = new snot(width/2 + 152, height/2 + 210, 5, 25, 255,255,255,255)
 }
 
 function resetVariables(){
@@ -926,6 +946,7 @@ leftPig.update()
   case 3:
 leftPig.update()
      leftM.update()
+    leftSnot.update()
     
     if(gradeOneLeftTurn == true){
   leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
@@ -935,6 +956,7 @@ leftPig.update()
   case 4:
 leftPig.update()
      leftM.update()
+    leftSnot.update()
     
     if(gradeOneLeftTurn == true){
   leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
@@ -944,6 +966,7 @@ leftPig.update()
   case 5:
 leftPig.update()
      leftM.update()
+    leftSnot.update()
     
     if(gradeOneLeftTurn == true){
   leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
@@ -977,6 +1000,7 @@ switch(Rd){
   case 3:
     rightPig.update()
     rightM.update()
+    rightSnot.update()
     
     if(gradeOneLeftTurn == false){
        rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
@@ -986,6 +1010,7 @@ switch(Rd){
   case 4:
   rightPig.update()
     rightM.update()
+    rightSnot.update()
     
     if(gradeOneLeftTurn == false){
        rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
@@ -995,6 +1020,7 @@ switch(Rd){
   case 5:
  rightPig.update()
     rightM.update()
+    rightSnot.update()
     
     if(gradeOneLeftTurn == false){
        rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
