@@ -1800,6 +1800,13 @@ arc(width/2 + 150,height/2 + 105,75,100,radians(180),radians(360))
 	noFill()
 	stroke(255)
 	bezier(width/2 - 167.5, height/2 - 20, width/2 - 157.5, height/2 - 10, width/2 - 143.5, height/2 - 10, width/2 - 133.5, height/2 - 20)
+
+    //dark cloud
+    fill(150)
+	noStroke()
+	ellipse(width/2 + 150, height/2 - 25, 80, 70)
+	circle(width/2 + 115, height/2 - 20,50)
+	circle(width/2 + 185, height/2 - 20,50)
     
     rightR1.fall()
      rightR2.fall()
@@ -1836,6 +1843,13 @@ arc(width/2 + 150,height/2 + 105,90,230,radians(180),radians(360))
 	noFill()
 	stroke(255)
 	bezier(width/2 + 133.5, height/2 - 20, width/2 + 143.5, height/2 - 10, width/2 + 157.5, height/2 - 10, width/2 + 167.5, height/2 - 20)
+
+    //dark cloud
+    fill(150)
+	noStroke()
+	ellipse(width/2 - 150, height/2 - 25, 80, 70)
+	circle(width/2 - 185, height/2 - 20,50)
+	circle(width/2 - 115, height/2 - 20,50)
   
     leftR1.fall()
      leftR2.fall()
