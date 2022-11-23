@@ -1790,6 +1790,10 @@ arc(width/2 - 150,height/2 + 105,90,230,radians(180),radians(360))
     circle(width/2 + 150, height/2 + 38, 40)
 arc(width/2 + 150,height/2 + 105,75,100,radians(180),radians(360))
 
+    //line on the center
+     rectMode(CORNER)
+      rect(width/2, height/2 - 160, 3, height/2)
+
     //sunglasses and mouth
     fill(52,168,235)
 	rectMode(CENTER)
@@ -1833,6 +1837,10 @@ arc(width/2 - 150,height/2 + 105,75,100,radians(180),radians(360))
    circle(width/2 + 150, height/2 - 30, 60)
 arc(width/2 + 150,height/2 + 105,90,230,radians(180),radians(360))
 
+    //line on the center
+     rectMode(CORNER)
+      rect(width/2, height/2 - 160, 3, height/2)
+
     //sunglasses and mouth
     fill(52,168,235)
 	rectMode(CENTER)
@@ -1864,11 +1872,11 @@ arc(width/2 + 150,height/2 + 105,90,230,radians(180),radians(360))
 				gradeOneRightResult="TIE"
     fill(0)
     //left
-    circle(width/2 - 150, height/2 - 15, 50)
-arc(width/2 - 150,height/2 + 105,80,200,radians(180),radians(360))
+    circle(width/2 - 35, height/2 - 15, 50)
+arc(width/2 - 35,height/2 + 105,80,200,radians(180),radians(360))
     //right
-     circle(width/2 + 150, height/2 - 15, 50)
-arc(width/2 + 150,height/2 + 105,80,200,radians(180),radians(360))
+     circle(width/2 + 35, height/2 - 15, 50)
+arc(width/2 + 35,height/2 + 105,80,200,radians(180),radians(360))
     
 			}else{
 				gradeOneLeftResult="DRAW"
@@ -1882,8 +1890,6 @@ arc(width/2 + 150,height/2 + 105,80,200,radians(180),radians(360))
 			textSize(30)
 	text('Score: '+GRscore,width/2 + 150,height/2 - 120)
 	text('Score: '+GLscore,width/2 - 150,height/2 - 120)
-      rectMode(CORNER)
-      rect(width/2, height/2 - 160, 3, height/2)
       home.update()
         home.render()
        restartGradeOnePs.update()
