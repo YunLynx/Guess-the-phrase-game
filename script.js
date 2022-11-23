@@ -82,9 +82,9 @@ class leftBalloon{
 		noStroke()
 		ellipse(this.x, this.y, this.w, this.h)
 		triangle(this.x, this.y + this.h / 2, this.x + 10, this.y + (this.h / 2 + 10), this.x - 10, this.y + (this.h / 2 + 10))
-		if(this.y < height/2 - 55){
-			this.y = height/2 + 85
-      this.x = random(width/2 - 90, width/2 - 210)
+		if(this.y < height/2 - 65){
+			this.y = height/2 + 65
+      this.x = random(width/2 - 60, width/2 - 240)
 		}
 	}
 }
@@ -104,9 +104,9 @@ class rightBalloon{
 		noStroke()
 		ellipse(this.x, this.y, this.w, this.h)
 		triangle(this.x, this.y + this.h / 2, this.x + 10, this.y + (this.h / 2 + 10), this.x - 10, this.y + (this.h / 2 + 10))
-		if(this.y < height/2 - 55){
-			this.y = height/2 + 85
-      this.x = random(width/2 + 90, width/2 + 210)
+		if(this.y < height/2 - 65){
+			this.y = height/2 + 65
+      this.x = random(width/2 + 60, width/2 + 240)
 		}
 	}
 }
@@ -306,15 +306,15 @@ menu = 0
 
   //balloons on the result of 2 players' grade 1 stage
   //left
-  leftB1 = new leftBalloon(random(width/2 - 90, width/2 - 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
-  leftB2 = new leftBalloon(random(width/2 - 90, width/2 - 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
-  leftB3 = new leftBalloon(random(width/2 - 90, width/2 - 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100, 500), random(100, 500), random(100, 500))
-    leftB4 = new leftBalloon(random(width/2 - 90, width/2 - 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+  leftB1 = new leftBalloon(random(width/2 - 60, width/2 - 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+  leftB2 = new leftBalloon(random(width/2 - 60, width/2 - 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+  leftB3 = new leftBalloon(random(width/2 - 60, width/2 - 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100, 500), random(100, 500), random(100, 500))
+   leftB4 = new leftBalloon(random(width/2 - 60, width/2 - 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
   //right
-   rightB1 = new rightBalloon(random(width/2 + 90, width/2 + 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
-  rightB2 = new rightBalloon(random(width/2 + 90, width/2 + 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))   
-    rightB3 = new rightBalloon(random(width/2 + 90, width/2 + 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
-   rightB4 = new rightBalloon(random(width/2 + 90, width/2 + 210), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+   rightB1 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+  rightB2 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))   
+    rightB3 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+   rightB4 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
 }
 
 function resetVariables(){
@@ -1779,15 +1779,27 @@ backDrop()
 leftB1.up()
      leftB2.up()
      leftB3.up()
-     leftB4.up()
+    leftB4.up()
     
     fill(0)
-    //left
+    //left avatar
     circle(width/2 - 150, height/2 - 30, 60)
 arc(width/2 - 150,height/2 + 105,90,230,radians(180),radians(360))
-    //right
+
+    //right avatar
     circle(width/2 + 150, height/2 + 38, 40)
 arc(width/2 + 150,height/2 + 105,75,100,radians(180),radians(360))
+
+    //sunglasses and mouth
+    fill(52,168,235)
+	rectMode(CENTER)
+	rect(width/2 - 165, height/2 - 40, 30, 1)
+	arc(width/2 - 165, height/2 - 40, 25, 20, radians(360), radians(180))
+	rect(width/2 - 135, height/2 - 40, 30, 1)
+	arc(width/2 - 135, height/2 - 40, 25, 20, radians(360), radians(180))
+	noFill()
+	stroke(255)
+	bezier(width/2 - 167.5, height/2 - 20, width/2 - 157.5, height/2 - 10, width/2 - 143.5, height/2 - 10, width/2 - 133.5, height/2 - 20)
     
     rightR1.fall()
      rightR2.fall()
@@ -1807,12 +1819,23 @@ arc(width/2 + 150,height/2 + 105,75,100,radians(180),radians(360))
     rightB4.up()
     
     fill(0)
-    //left
+    //left avatar
      circle(width/2 - 150, height/2 + 38, 40)
 arc(width/2 - 150,height/2 + 105,75,100,radians(180),radians(360))
-    //right
+    //right avatar
    circle(width/2 + 150, height/2 - 30, 60)
 arc(width/2 + 150,height/2 + 105,90,230,radians(180),radians(360))
+
+    //sunglasses and mouth
+    fill(52,168,235)
+	rectMode(CENTER)
+	rect(width/2 + 135, height/2 - 40, 30, 1)
+	arc(width/2 + 135, height/2 - 40, 25, 20, radians(360), radians(180))
+	rect(width/2 + 165, height/2 - 40, 30, 1)
+	arc(width/2 + 165, height/2 - 40, 25, 20, radians(360), radians(180))
+	noFill()
+	stroke(255)
+	bezier(width/2 + 133.5, height/2 - 20, width/2 + 143.5, height/2 - 10, width/2 + 157.5, height/2 - 10, width/2 + 167.5, height/2 - 20)
   
     leftR1.fall()
      leftR2.fall()
