@@ -225,6 +225,27 @@ update() {
 	}
 }
 
+      class mustache{
+	constructor(x,y,secX,secY,tX,tY,fX,fY,r,g,b,s){
+		this.x = x
+		this.y = y
+		this.secX = secX
+		this.secY = secY
+		this.tX = tX
+		this.tY = tY
+		this.fX = fX
+		this.fY = fY
+		this.Color = color(r,g,b)
+		this.Stroke = s
+	}
+	update(){
+		fill(this.Color)
+		stroke(this.Stroke)
+		bezier(this.x + 10, this.y, this.secX + 20, this.secY, this.tX + 40, this.tY + 20, this.fX + 40, this.fY + 20)
+		bezier(this.x - 10, this.y, this.secX - 20, this.secY, this.tX - 40, this.tY + 20, this.fX - 40, this.fY + 20)
+	}
+}
+
 function backDrop(){
   rectMode(CENTER)
 fill(207, 228, 230)
@@ -337,6 +358,9 @@ menu = 0
 
   rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
   leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+
+  rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
+  leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
 }
 
 function resetVariables(){
@@ -881,22 +905,50 @@ function showProgress(){
 function leftDoodle(){
 switch(Ld){
   case 0:
-
+ 
     break
   case 1:
-leftPig.update()
+  leftPig.update()
+    
+    if(gradeOneLeftTurn == true){
+  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+    }
    break
   case 2:
 leftPig.update()
+    leftM.update()
+    
+    if(gradeOneLeftTurn == true){
+  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+      leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+    }
    break
   case 3:
 leftPig.update()
+     leftM.update()
+    
+    if(gradeOneLeftTurn == true){
+  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+      leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+    }
     break
   case 4:
 leftPig.update()
+     leftM.update()
+    
+    if(gradeOneLeftTurn == true){
+  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+      leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+    }
     break
   case 5:
 leftPig.update()
+     leftM.update()
+    
+    if(gradeOneLeftTurn == true){
+  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+      leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+    }
     break
 }
 }
@@ -907,19 +959,47 @@ switch(Rd){
 
     break
   case 1:
-    rightPig.update()
+   rightPig.update()
+    
+    if(gradeOneLeftTurn == false){
+       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+    }
    break
   case 2:
     rightPig.update()
+    rightM.update()
+    
+    if(gradeOneLeftTurn == false){
+       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+    }
    break
   case 3:
-     rightPig.update()
+    rightPig.update()
+    rightM.update()
+    
+    if(gradeOneLeftTurn == false){
+       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+    }
     break
   case 4:
   rightPig.update()
+    rightM.update()
+    
+    if(gradeOneLeftTurn == false){
+       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+    }
     break
   case 5:
-  rightPig.update()
+ rightPig.update()
+    rightM.update()
+    
+    if(gradeOneLeftTurn == false){
+       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+    }
     break
 }
 }
@@ -1775,6 +1855,7 @@ gradeOneP()
   case 17: //Grade 1 stage for 2 players
 clear()
 gradeOnePs()
+  stroke(0)
   fill(0,0,0)
 	textSize(50);
 	text(gradeOneGuessTwo.join(" "), width/2, height/4);
