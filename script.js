@@ -206,6 +206,25 @@ update() {
 	}
 }
 
+   class pigNose{
+	constructor(x, y, radius, w, h, r,g,b,s){
+		this.x = x
+		this.y = y
+		this.radius = radius
+		this.w = w
+		this.h = h
+		this.Color = color(r,g,b)
+		this.stroke = s
+	}
+	update(){
+		fill(this.Color)
+		stroke(this.stroke)
+		ellipse(this.x, this.y, this.w, this.h)
+		circle(this.x - this.h / 3, this.y, this.radius)
+		circle(this.x + this.h / 3, this.y, this.radius)
+	}
+}
+
 function backDrop(){
   rectMode(CENTER)
 fill(207, 228, 230)
@@ -315,10 +334,16 @@ menu = 0
   rightB2 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))   
     rightB3 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
    rightB4 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
+
+  rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+  leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
 }
 
 function resetVariables(){
 f = 0
+
+  Ld = 0
+  Rd = 0
 
   ELr = 50
 ERr = 50
@@ -790,11 +815,11 @@ function gradeOnePs(){
   backDrop()
   fill(0)
   //avatar on the left side
-	circle(width/2.65, GLy, GLr)
-arc(width/2.65,513,80,GLh,radians(180),radians(360))
+	circle(width/2 - 148, GLy, GLr)
+arc(width/2 - 148,513,80,GLh,radians(180),radians(360))
   //avatar on the right side
-  circle(width/1.6, GRy, GRr)
-arc(width/1.6,513,80,GRh,radians(180),radians(360))
+  circle(width/2 + 148, GRy, GRr)
+arc(width/2 + 148,513,80,GRh,radians(180),radians(360))
   //a line on the center
   rect(width/2, height/1.24, 1, height/3)
 
@@ -815,6 +840,8 @@ arc(width/1.6,513,80,GRh,radians(180),radians(360))
     GLr = 40
     GLh = 100
   }
+  leftDoodle()
+  rightDoodle()
 }
 
 
@@ -849,6 +876,52 @@ function showProgress(){
         bezier(width/1.45 - 12, height/1.15 + 20,width/1.45 - 2, height/1.15 + 10,width/1.45 + 2,height/1.15 + 10,width/1.45 + 12, height/1.15 + 20)
 				break
 		}
+}
+
+function leftDoodle(){
+switch(Ld){
+  case 0:
+
+    break
+  case 1:
+leftPig.update()
+   break
+  case 2:
+leftPig.update()
+   break
+  case 3:
+leftPig.update()
+    break
+  case 4:
+leftPig.update()
+    break
+  case 5:
+leftPig.update()
+    break
+}
+}
+
+function rightDoodle(){
+switch(Rd){
+  case 0:
+
+    break
+  case 1:
+    rightPig.update()
+   break
+  case 2:
+    rightPig.update()
+   break
+  case 3:
+     rightPig.update()
+    break
+  case 4:
+  rightPig.update()
+    break
+  case 5:
+  rightPig.update()
+    break
+}
 }
 
 function keyPressed(){
@@ -1132,8 +1205,18 @@ function keyPressed(){
   if (gradeOneResultTwo.length > 0) {
     if(gradeOneLeftTurn == true){
 					GLscore = GLscore + 1
+         Rd = Rd + 1
+        Ld = Ld - 1
+      if(Ld < 1){
+        Ld = 0
+      }
       }else{
 				GRscore = GRscore + 1
+      Rd = Rd - 1
+      Ld = Ld + 1
+      if(Rd < 0){
+        Rd = 0
+      }
 			}
 		}
 		else if(gradeOneWrongGuessesTwo.includes(key)){
