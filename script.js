@@ -297,6 +297,9 @@ function setup() {
   
 menu = 0
 
+  //score variable
+  topScore_time = 100
+
   currentStatus = true
 
   easyLeftTurn = true
@@ -412,11 +415,17 @@ menu = 0
 }
 
 function resetVariables(){
+//face variable
 f = 0
 
+  //cat varialbe
+  c = 0
+
+  //doodle variables
   Ld = 0
   Rd = 0
 
+  //avatar variables
   ELr = 50
 ERr = 50
 	NLr = 50
@@ -443,7 +452,8 @@ NRy = 513 - 130
 HRy = 513 - 130
   	GLy = 513 - 130
 GRy = 513 - 130
-	
+
+  //score variables
 	ELscore = 0
 	ERscore = 0
   NLscore = 0
@@ -452,7 +462,8 @@ GRy = 513 - 130
 	HRscore = 0
   GLscore = 0
 	GRscore = 0
-  
+
+  //variables of showing number of right guesses
 easyRightGuessOne = 0
   normalRightGuessOne = 0
   hardRightGuessOne = 0
@@ -473,9 +484,6 @@ easyRightGuessOne = 0
   gradeOneTotalTime = 300
   gradeOneRemainTime = gradeOneTotalTime
   sc_prev = -1
-
-  //score variables
-  topScore_time = 100
 
   //phrases for easy, normal, hard and grade 1 stages in 1 player
   easyPhrasesOne = [
@@ -788,6 +796,8 @@ backDrop()
 	fill(0)
 	textSize(25)
 	text('High Score: '+gradeOneHighscore , width/3,height/12)  
+
+  showCat()
 }
 
 function easyTwoPlayers(){
@@ -948,6 +958,29 @@ function showProgress(){
         bezier(width/1.45 - 12, height/1.15 + 20,width/1.45 - 2, height/1.15 + 10,width/1.45 + 2,height/1.15 + 10,width/1.45 + 12, height/1.15 + 20)
 				break
 		}
+}
+
+function showCat(){
+  switch(c){
+    case 0:
+
+      break
+    case 1:
+
+      break
+    case 2:
+
+      break
+    case 3:
+      
+      break
+    case 4:
+
+      break
+    case 5:
+
+      break
+  }
 }
 
 function leftDoodle(){
@@ -1326,18 +1359,28 @@ function keyPressed(){
       }
     }
   if (gradeOneResult.length > 0) {
-    
+     c = c - 1
+		if(c < 0){
+				c = 0
+			}
 		}
 		else if(gradeOneWrongGuesses.includes(key)){
 			textSize(25)
 			text("You already guessed that.", width/2, height/1.5);
        gradeOneRemainTime = gradeOneRemainTime - 40
-		}
-		else{
+       c = c + 2
+			if(c > 5){
+				c = 5
+			}
+		}else{
 		 gradeOneWrongGuesses.push(key)
 			textSize(25)
 			text("NO MATCH!", width/2, height/1.5)
        gradeOneRemainTime = gradeOneRemainTime - 30
+      c = c + 1
+      if(c > 5){
+        c = 5
+      }
 		}
 }
 
@@ -1357,7 +1400,7 @@ function keyPressed(){
 					GLscore = GLscore + 1
          Rd = Rd + 1
         Ld = Ld - 1
-      if(Ld < 1){
+      if(Ld < 0){
         Ld = 0
       }
       if(Rd > 4){
