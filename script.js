@@ -963,10 +963,35 @@ function showProgress(){
 function showCat(){
   switch(c){
     case 0:
-
+  
       break
     case 1:
+noStroke(0)
+fill(0);
+ellipse(width/1.75, height / 1.2, 14, 15)
+ellipse(width/1.75 + 5, height/1.2 - 5, 14, 15)
+ellipse(width/1.75 + 15, height/1.2 - 10, 14, 15)
+ellipse(width/1.75 + 20, height/1.2 - 20, 14, 15)
+ellipse(width/1.75 + 15, height/1.2 - 30, 14, 15)
+ellipse(width/1.75 + 10, height/1.2 - 40, 14, 15)
+ellipse(width/1.75 + 15, height/1.2 - 50, 14, 15)
+ellipse(width/1.75 + 20, height/1.2 - 60, 14, 15)
+ellipse(width/1.75 - 75, height/1.2 - 70, 14, 15)
+ellipse(width/1.75 - 80, height/1.2 - 80, 14, 15)
+ellipse(width/1.75 - 120, height/1.2 + 25, 65, 90)
+ellipse(width/1.75 - 30, height/1.2 + 25, 65, 90)
 
+ellipse(width/1.75 - 90, height/1.2 - 10, 100, 150)
+
+ellipse(width/1.75 - 110, height/1.2 + 40, 16, 50)
+ellipse(width/1.75 - 70, height/1.2 + 40, 16, 50)
+
+fill(255)
+ellipse(width/1.75 - 145, height/1.2 + 75, 20, 15)
+ellipse(width/1.75 - 35, height/1.2 + 75, 20, 15)
+
+ellipse(width/1.75 - 110, height/1.2 + 80, 20, 15)
+ellipse(width/1.75 - 70, height/1.2 + 80, 20, 15)
       break
     case 2:
 
@@ -1951,6 +1976,7 @@ backDrop()
   case 16: //Grade 1 stage for 1 player
   clear()
 gradeOneP()
+      stroke(0)
   fill(0,0,0)
 	textSize(40);
   text(gradeOneGuess.join(" "), width/2, height/3);
