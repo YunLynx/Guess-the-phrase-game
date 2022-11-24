@@ -394,15 +394,19 @@ menu = 0
     rightB3 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
    rightB4 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
 
+  //pig nose
   rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
   leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
 
+  //mustache
   rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
   leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
 
+  //snot
   leftSnot = new snot(width/2 - 144, height/2 + 210, 5, 25, 255,255,255,255)
   rightSnot = new snot(width/2 + 152, height/2 + 210, 5, 25, 255,255,255,255)
 
+//ice cream
   leftI = new iceCream(width/2 - 195, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
   rightI = new iceCream(width/2 + 98, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
 }
@@ -563,7 +567,7 @@ easyRightGuessOne = 0
     new Phrase("jellyfish", "An animal", "With a transparent body"),
   new Phrase("pancake", "A cake", "With thin and round"),
 	 new Phrase("butter", "A dairy product", "With yellow colour"),
-    new Phrase("ice cream", "A dairy product", "Usually it in summer"),
+    new Phrase("ice cream", "A dairy product", "Usually eat in summer"),
 ];
   gradeOneIndex = Math.floor(random(0, gradeOnePhrases.length))
   gradeOneCurPhrase = gradeOnePhrases[gradeOneIndex]
@@ -650,7 +654,7 @@ easyRightGuessOne = 0
   new Phrase("rabbit", "An animal", "With two long ears"),
   new Phrase("zebra", "An animal", "With white and black stripes"),
 	 new Phrase("grape", "A fruit", "With purple colour"),
-    new Phrase("scarf", "A type of clothes", "Wear around the neck"),
+    new Phrase("scarf", "A type of cloth", "Wear around the neck"),
   new Phrase("cherry", "A fruit", "With red colour"),
 	 new Phrase("finger", "A part of the human body", "Connected to the hands"),
     new Phrase("pig", "An animal", "With pink colour"),
@@ -956,6 +960,8 @@ switch(Ld){
     
     if(gradeOneLeftTurn == true){
   leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+    }else{
+       leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
     }
    break
   case 2:
@@ -965,6 +971,9 @@ leftPig.update()
     if(gradeOneLeftTurn == true){
   leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
       leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+    }else{
+       leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+       leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
     }
    break
   case 3:
@@ -975,6 +984,11 @@ leftPig.update()
     if(gradeOneLeftTurn == true){
   leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
       leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+      leftSnot = new snot(width/2 - 144, height/2 + 145, 5, 25, 255,255,255,255)
+    }else{
+      leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+       leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
+       leftSnot = new snot(width/2 - 144, height/2 + 210, 5, 25, 255,255,255,255)
     }
     break
   case 4:
@@ -986,17 +1000,13 @@ leftPig.update()
     if(gradeOneLeftTurn == true){
   leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
       leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
-    }
-    break
-  case 5:
-leftPig.update()
-     leftM.update()
-    leftSnot.update()
-    leftI.update()
-    
-    if(gradeOneLeftTurn == true){
-  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
-      leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+      leftSnot = new snot(width/2 - 144, height/2 + 145, 5, 25, 255,255,255,255)
+      leftI = new iceCream(width/2 - 195, height/2 + 50, 25, 208, 139, 0, 254, 252, 207)
+    }else{
+      leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+       leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
+      leftSnot = new snot(width/2 - 144, height/2 + 210, 5, 25, 255,255,255,255)
+       leftI = new iceCream(width/2 - 195, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
     }
     break
 }
@@ -1012,6 +1022,8 @@ switch(Rd){
     
     if(gradeOneLeftTurn == false){
        rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+    }else{
+      rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
     }
    break
   case 2:
@@ -1021,6 +1033,9 @@ switch(Rd){
     if(gradeOneLeftTurn == false){
        rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
       rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+    }else{
+      rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
     }
    break
   case 3:
@@ -1031,6 +1046,11 @@ switch(Rd){
     if(gradeOneLeftTurn == false){
        rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
       rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+      rightSnot = new snot(width/2 + 152, height/2 + 145, 5, 25, 255,255,255,255)
+    }else{
+       rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
+       rightSnot = new snot(width/2 + 152, height/2 + 210, 5, 25, 255,255,255,255)
     }
     break
   case 4:
@@ -1042,17 +1062,13 @@ switch(Rd){
     if(gradeOneLeftTurn == false){
        rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
       rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
-    }
-    break
-  case 5:
- rightPig.update()
-    rightM.update()
-    rightSnot.update()
-    rightI.update()
-    
-    if(gradeOneLeftTurn == false){
-       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
-      rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+      rightSnot = new snot(width/2 + 152, height/2 + 145, 5, 25, 255,255,255,255)
+      rightI = new iceCream(width/2 + 98, height/2 + 50, 25, 208, 139, 0, 254, 252, 207)
+    }else{
+      rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
+       rightSnot = new snot(width/2 + 152, height/2 + 210, 5, 25, 255,255,255,255)
+      rightI = new iceCream(width/2 + 98, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
     }
     break
 }
@@ -1344,12 +1360,18 @@ function keyPressed(){
       if(Ld < 1){
         Ld = 0
       }
+      if(Rd > 4){
+        Rd = 4
+      }
       }else{
 				GRscore = GRscore + 1
       Rd = Rd - 1
       Ld = Ld + 1
       if(Rd < 0){
         Rd = 0
+      }
+      if(Ld > 4){
+        Ld = 4
       }
 			}
 		}
@@ -1378,7 +1400,7 @@ function keyPressed(){
 function draw() {
   clear()
   if(menu == 4 || menu == 5 || menu == 6 || menu == 7 || menu == 8 || menu == 9 || menu == 16 || menu == 17){
-	frameRate(1)
+	frameRate(2)
 	}
   if(menu == 10 || menu == 11 || menu == 12 || menu == 13 || menu == 14 || menu == 15 || menu == 18 || menu == 19){
     frameRate(30)
