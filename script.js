@@ -263,6 +263,27 @@ update() {
 	}
 }
 
+class iceCream{
+	constructor(x,y,radius,r,g,b,secR,secG,secB){
+		this.x = x
+		this.y = y
+		this.radius = radius
+		this.Color = color(r,g,b)
+		this.secColor = color(secR,secG,secB)
+	}
+	update(){
+		noStroke()
+		fill(this.Color)
+		triangle(this.x, this.y, this.x + 30, this.y + 60,this.x + 50,this.y + 40)
+		fill(this.secColor)
+		circle(this.x + 40, this.y + 50, this.radius)
+		circle(this.x + 45,this.y + 35,this.radius/2)
+			circle(this.x + 40,this.y + 40,this.radius/2)
+		circle(this.x + 30,this.y + 45,this.radius/2)
+		circle(this.x + 25, this.y + 55,this.radius/2)
+	}
+}
+
 function backDrop(){
   rectMode(CENTER)
 fill(207, 228, 230)
@@ -381,6 +402,9 @@ menu = 0
 
   leftSnot = new snot(width/2 - 144, height/2 + 210, 5, 25, 255,255,255,255)
   rightSnot = new snot(width/2 + 152, height/2 + 210, 5, 25, 255,255,255,255)
+
+  leftI = new iceCream(width/2 - 195, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
+  rightI = new iceCream(width/2 + 98, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
 }
 
 function resetVariables(){
@@ -957,6 +981,7 @@ leftPig.update()
 leftPig.update()
      leftM.update()
     leftSnot.update()
+    leftI.update()
     
     if(gradeOneLeftTurn == true){
   leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
@@ -967,6 +992,7 @@ leftPig.update()
 leftPig.update()
      leftM.update()
     leftSnot.update()
+    leftI.update()
     
     if(gradeOneLeftTurn == true){
   leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
@@ -1011,6 +1037,7 @@ switch(Rd){
   rightPig.update()
     rightM.update()
     rightSnot.update()
+    rightI.update()
     
     if(gradeOneLeftTurn == false){
        rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
@@ -1021,6 +1048,7 @@ switch(Rd){
  rightPig.update()
     rightM.update()
     rightSnot.update()
+    rightI.update()
     
     if(gradeOneLeftTurn == false){
        rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
