@@ -963,48 +963,238 @@ function showProgress(){
 function showCat(){
   switch(c){
     case 0:
-  
+  //tail
+  noStroke(0)
+fill(0);
+ellipse(width/2 + 45, height/1.2 + 5,12, 12.5)
+ellipse(width/2 + 47.5, height/1.2 + 2.5, 12, 12.5)
+ellipse(width/2 + 52.5, height/1.2, 12, 12.5)
+ellipse(width/2 + 55, height/1.2 - 5, 12, 12.5)
+ellipse(width/2 + 52.5, height/1.2 - 10, 12, 12.5)
+ellipse(width/2 + 50, height/1.2 - 15, 12, 12.5)
+ellipse(width/2 + 52.5, height/1.2 - 20, 12, 12.5)
+ellipse(width/2 + 55, height/1.2 - 25, 12, 12.5)
+ellipse(width/2 + 7.5, height/1.2 - 30, 12, 12.5)
+ellipse(width/2 + 5, height/1.2 - 35, 12, 12.5)
+
+//body
+ellipse(width/2 -25, height/1.2 + 17.5, 37.5, 50)
+ellipse(width/2 + 25, height/1.2 + 17.5, 37.5, 50)
+
+  //foot
+fill(255)
+ellipse(width/2 - 27.5, height/1.2 + 42.5, 15, 12.5)
+ellipse(width/2 + 27.5, height/1.2 + 42.5, 15, 12.5)
+
+//body
+fill(0)
+ellipse(width/2, height/1.2, 75, 100)
+
+ellipse(width/2 - 10, height/1.2 + 25, 12.5, 50)
+ellipse(width/2 + 10, height/1.2 + 25, 12.5, 50)
+
+//foot
+fill(255)
+ellipse(width/2 - 10, height/1.2 + 45, 15, 12.5)
+ellipse(width/2 + 10, height/1.2 + 45, 15, 12.5)
+
+//face
+fill(0)
+triangle(width/2 - 35, height/1.2 - 95, width/2 + 35, height/1.2 - 60, width/2 - 35, height/1.2 - 50);
+triangle(width/2 + 37.5, height/1.2 - 95, width/2, height/1.2 - 75, width/2 + 35, height/1.2 - 40);
+ellipse(width/2, height/1.2 - 45, 80, 75);
+ellipse(width/2 - 22.5,height/1.2 - 40,40,40);
+ellipse(width/2 + 22.5,height/1.2 - 40,40,40);
+
+//eyes
+fill(64, 65, 64);
+circle(width/2 - 15,height/1.2 - 45,20);
+circle(width/2 + 16.5,height/1.2 - 45,20);
+
+fill(145, 255, 244);
+circle(width/2 - 15,height/1.2 - 40,9);
+circle(width/2 + 16.5,height/1.2 - 40,9);
+
+//nose
+fill(255,255,255)
+triangle(width/2 - 2.5,height/1.2 - 35,width/2 + 5,height/1.2 - 35,width/2 + 1,height/1.2 - 30);
+
+//mouth
+noStroke();
+	fill(253, 171, 200);
+   triangle(width/2 - 2.5, height/1.2 - 28.5, width/2 + 5, height/1.2 - 28.5,width/2 + 1.5,height/1.2 - 22.5);
+  noFill()
+stroke(255);
+	bezier(width/2 + 1, height/1.2 - 30, width/2 + 2.5, height/1.2 - 28.5, width/2 - 7.5, height/1.2 - 25.5, width/2 - 7.5, height/1.2 - 28.5)
+bezier(width/2 + 1, height/1.2 - 30, width/2 - 0.5, height/1.2 - 28.5, width/2 + 9.5, height/1.2 - 26, width/2 + 9.5, height/1.2 - 28.5)
+
+//whiskers
+  stroke(0,0,0)
+line(width/2 - 49, height/1.2 - 39, width/2 - 29, height/1.2 - 34)
+line(width/2 - 49, height/1.2 - 29, width/2 - 29, height/1.2 - 29)
+line(width/2 - 49, height/1.2 - 19, width/2 - 29, height/1.2 - 25)
+line(width/2 + 30.5, height/1.2 - 34, width/2 + 50.5, height/1.2 - 39)
+line(width/2 + 30.5, height/1.2 - 29, width/2 + 50.5, height/1.2 - 29)
+line(width/2 + 30.5, height/1.2 - 24, width/2 + 50.5, height/1.2 - 19)
+
+//eyebrows
+  stroke(255)
+  bezier(width/2 - 22.5, height/1.2 - 60, width/2 - 18.5, height/1.2 - 65, width/2 - 11, height/1.2 - 65, width/2 - 7.5, height/1.2 - 60)
+bezier(width/2 + 10, height/1.2 - 60, width/2 + 14, height/1.2 - 65, width/2 + 21.5, height/1.2 - 65, width/2 + 25, height/1.2 - 60)
       break
     case 1:
-//body
+	//tail
 noStroke(0)
 fill(0);
-ellipse(width/1.5 + 55, height/1.2 + 10, 16, 17)
-ellipse(width/1.5 + 60, height/1.2 + 5, 16, 17)
-ellipse(width/1.5 + 70, height/1.2, 16, 17)
-ellipse(width/1.5 + 75, height/1.2 - 10, 16, 17)
-ellipse(width/1.5 + 70, height/1.2 - 20, 16, 17)
-ellipse(width/1.5 + 65, height/1.2 - 30, 16, 17)
-ellipse(width/1.5 + 70, height/1.2 - 40, 16, 17)
-ellipse(width/1.5 + 75, height/1.2 - 50, 16, 17)
+ellipse(width/2 + 45, height/1.2 + 5,12, 12.5)
+ellipse(width/2 + 47.5, height/1.2 + 2.5, 12, 12.5)
+ellipse(width/2 + 52.5, height/1.2, 12, 12.5)
+ellipse(width/2 + 55, height/1.2 - 5, 12, 12.5)
+ellipse(width/2 + 52.5, height/1.2 - 10, 12, 12.5)
+ellipse(width/2 + 50, height/1.2 - 15, 12, 12.5)
+ellipse(width/2 + 52.5, height/1.2 - 20, 12, 12.5)
+ellipse(width/2 + 55, height/1.2 - 25, 12, 12.5)
+ellipse(width/2 + 7.5, height/1.2 - 30, 12, 12.5)
+ellipse(width/2 + 5, height/1.2 - 35, 12, 12.5)
 
-ellipse(width/1.5 - 10, height/1.2 - 60, 16, 17)
-ellipse(width/1.5 - 15, height/1.2 - 65, 16, 17)
-      
-ellipse(width/1.5 - 35, height/1.2 + 25, 40, 70)
-ellipse(width/1.5 + 35, height/1.2 + 25, 40, 70)
+//body
+ellipse(width/2 -25, height/1.2 + 17.5, 37.5, 50)
+ellipse(width/2 + 25, height/1.2 + 17.5, 37.5, 50)
 
 //foot
 fill(255)
-ellipse(width/1.5 - 30, height/1.2 + 55, 20, 15)
-ellipse(width/1.5 + 30, height/1.2 + 55, 20, 15)
+ellipse(width/2 - 27.5, height/1.2 + 42.5, 15, 12.5)
+ellipse(width/2 + 27.5, height/1.2 + 42.5, 15, 12.5)
 
-	//body
+//body
 fill(0)
-ellipse(width/1.5, height/1.2, 80, 120)
+ellipse(width/2, height/1.2, 75, 100)
 
-ellipse(width/1.5 - 15, height/1.2 + 40, 10, 40)
-ellipse(width/1.5 + 15, height/1.2 + 40, 10, 40)
+ellipse(width/2 - 10, height/1.2 + 25, 12.5, 50)
+ellipse(width/2 + 10, height/1.2 + 25, 12.5, 50)
 
 //foot
 fill(255)
-ellipse(width/1.5 - 15, height/1.2 + 60, 20, 15)
-ellipse(width/1.5 + 15, height/1.2 + 60, 20, 15)
+ellipse(width/2 - 10, height/1.2 + 45, 15, 12.5)
+ellipse(width/2 + 10, height/1.2 + 45, 15, 12.5)
 
+//face
+fill(0)
+triangle(width/2 - 35, height/1.2 - 95, width/2 + 35, height/1.2 - 60, width/2 - 35, height/1.2 - 50);
+triangle(width/2 + 37.5, height/1.2 - 95, width/2, height/1.2 - 75, width/2 + 35, height/1.2 - 40);
+ellipse(width/2, height/1.2 - 45, 80, 75);
+ellipse(width/2 - 22.5,height/1.2 - 40,40,40);
+ellipse(width/2 + 22.5,height/1.2 - 40,40,40);
 
+//eyes
+fill(64, 65, 64);
+circle(width/2 - 15,height/1.2 - 45,20);
+circle(width/2 + 16.5,height/1.2 - 45,20);
+
+fill(145, 255, 244);
+circle(width/2 - 15,height/1.2 - 40,9);
+circle(width/2 + 16.5,height/1.2 - 40,9);
+
+//nose
+fill(255,255,255)
+triangle(width/2 - 2.5,height/1.2 - 35,width/2 + 5,height/1.2 - 35,width/2 + 1,height/1.2 - 30);
+
+//mouth
+noFill()
+stroke(255);
+bezier(width/2 + 1, height/1.2 - 30, width/2 - 2.5, height/1.2 - 25, width/2 - 8, height/1.2 - 25, width/2 - 8, height/1.2 - 26)
+bezier(width/2 + 1, height/1.2 - 30, width/2 + 4.5, height/1.2 - 25, width/2 + 10, height/1.2 - 25, width/2 + 10, height/1.2 - 26)
+
+//whiskers
+  stroke(0,0,0)
+line(width/2 - 49, height/1.2 - 39, width/2 - 29, height/1.2 - 34)
+line(width/2 - 49, height/1.2 - 29, width/2 - 29, height/1.2 - 29)
+line(width/2 - 49, height/1.2 - 19, width/2 - 29, height/1.2 - 25)
+line(width/2 + 30.5, height/1.2 - 34, width/2 + 50.5, height/1.2 - 39)
+line(width/2 + 30.5, height/1.2 - 29, width/2 + 50.5, height/1.2 - 29)
+line(width/2 + 30.5, height/1.2 - 24, width/2 + 50.5, height/1.2 - 19)
+
+  //eyebrows
+	stroke(255)
+	line(width/2 - 22.5,height/1.2 - 60,width/2 - 6.5,height/1.2 - 60);
+	line(width/2 + 8.5,height/1.2 - 60,width/2 + 23.5,height/1.2 - 60);
       break
     case 2:
+//tail
+noStroke(0)
+fill(0);
+ellipse(width/2 + 45, height/1.2 + 5,12, 12.5)
+ellipse(width/2 + 47.5, height/1.2 + 2.5, 12, 12.5)
+ellipse(width/2 + 52.5, height/1.2, 12, 12.5)
+ellipse(width/2 + 55, height/1.2 - 5, 12, 12.5)
+ellipse(width/2 + 52.5, height/1.2 - 10, 12, 12.5)
+ellipse(width/2 + 50, height/1.2 - 15, 12, 12.5)
+ellipse(width/2 + 52.5, height/1.2 - 20, 12, 12.5)
+ellipse(width/2 + 55, height/1.2 - 25, 12, 12.5)
+ellipse(width/2 + 7.5, height/1.2 - 30, 12, 12.5)
+ellipse(width/2 + 5, height/1.2 - 35, 12, 12.5)
 
+//body
+ellipse(width/2 -25, height/1.2 + 17.5, 37.5, 50)
+ellipse(width/2 + 25, height/1.2 + 17.5, 37.5, 50)
+
+//foot
+fill(255)
+ellipse(width/2 - 27.5, height/1.2 + 42.5, 15, 12.5)
+ellipse(width/2 + 27.5, height/1.2 + 42.5, 15, 12.5)
+
+//body
+fill(0)
+ellipse(width/2, height/1.2, 75, 100)
+
+ellipse(width/2 - 10, height/1.2 + 25, 12.5, 50)
+ellipse(width/2 + 10, height/1.2 + 25, 12.5, 50)
+
+//foot
+fill(255)
+ellipse(width/2 - 10, height/1.2 + 45, 15, 12.5)
+ellipse(width/2 + 10, height/1.2 + 45, 15, 12.5)
+
+//face
+fill(0)
+triangle(width/2 - 35, height/1.2 - 95, width/2 + 35, height/1.2 - 60, width/2 - 35, height/1.2 - 50);
+triangle(width/2 + 37.5, height/1.2 - 95, width/2, height/1.2 - 75, width/2 + 35, height/1.2 - 40);
+ellipse(width/2, height/1.2 - 45, 80, 75);
+ellipse(width/2 - 22.5,height/1.2 - 40,40,40);
+ellipse(width/2 + 22.5,height/1.2 - 40,40,40);
+
+//eyes
+fill(64, 65, 64);
+circle(width/2 - 15,height/1.2 - 45,20);
+circle(width/2 + 16.5,height/1.2 - 45,20);
+
+fill(145, 255, 244);
+circle(width/2 - 15,height/1.2 - 40,9);
+circle(width/2 + 16.5,height/1.2 - 40,9);
+
+//nose
+fill(255,255,255)
+triangle(width/2 - 2.5,height/1.2 - 35,width/2 + 5,height/1.2 - 35,width/2 + 1,height/1.2 - 30);
+
+//mouth
+stroke(255)
+line(width/2 + 1,height/1.2 - 30, width/2 + 1,height/1.2 - 28.5);
+	line(width/2 + 1,height/1.2 - 28.5,width/2 - 1.5,height/1.2 - 26);
+	line(width/2 + 1,height/1.2 - 28.5,width/2 + 3.5,height/1.2 - 26);
+
+//whiskers
+  stroke(0,0,0)
+line(width/2 - 49, height/1.2 - 39, width/2 - 29, height/1.2 - 34)
+line(width/2 - 49, height/1.2 - 29, width/2 - 29, height/1.2 - 29)
+line(width/2 - 49, height/1.2 - 19, width/2 - 29, height/1.2 - 25)
+line(width/2 + 30.5, height/1.2 - 34, width/2 + 50.5, height/1.2 - 39)
+line(width/2 + 30.5, height/1.2 - 29, width/2 + 50.5, height/1.2 - 29)
+line(width/2 + 30.5, height/1.2 - 24, width/2 + 50.5, height/1.2 - 19)
+
+//eyebrows
+stroke(255)
+line(width/2 - 8.5,height/1.2 - 57.5,width/2 - 25,height/1.2 - 65);
+line(width/2 + 7,height/1.2 - 57.5,width/2 + 24,height/1.2 - 65);
       break
     case 3:
       
@@ -1401,7 +1591,7 @@ function keyPressed(){
 		}
 		else if(gradeOneWrongGuesses.includes(key)){
 			textSize(25)
-			text("You already guessed that.", width/2, height/1.5);
+			text("You already guessed that.", width/2, height/2 + 50);
        gradeOneRemainTime = gradeOneRemainTime - 40
        c = c + 2
 			if(c > 5){
@@ -1410,7 +1600,7 @@ function keyPressed(){
 		}else{
 		 gradeOneWrongGuesses.push(key)
 			textSize(25)
-			text("NO MATCH!", width/2, height/1.5)
+			text("NO MATCH!", width/2, height/2 + 50)
        gradeOneRemainTime = gradeOneRemainTime - 30
       c = c + 1
       if(c > 5){
@@ -1989,17 +2179,17 @@ gradeOneP()
       stroke(0)
   fill(0,0,0)
 	textSize(40);
-  text(gradeOneGuess.join(" "), width/2, height/3);
+  text(gradeOneGuess.join(" "), width/2, height/3.5);
   textSize(20)
-        text(`Hint: ${gradeOneCurPhrase.hint}`, width/2, height/2 - 20)
+        text(`Hint: ${gradeOneCurPhrase.hint}`, width/2, height/2 - 40)
       if(gradeOneWrongGuesses.length > 2){
         fill(0)
         textSize(18)
-        text(`Hint: ${gradeOneCurPhrase.secHint}`, width/2, height/2 + 10)
+        text(`Hint: ${gradeOneCurPhrase.secHint}`, width/2, height/2 - 10)
       }
   textSize(20)
 	fill(255,0,0)
-	text(gradeOneWrongGuesses.join(" "), width/2, height/2 + 40)
+	text(gradeOneWrongGuesses.join(" "), width/2, height/2 + 25)
       if(gradeOneRightGuess == gradeOneCurPhrase.phrase.length){
 				menu = 18
 			}
