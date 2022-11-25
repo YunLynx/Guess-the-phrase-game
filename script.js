@@ -1224,7 +1224,30 @@ ellipse(width/2 + 10, height/1.2 + 25, 12.5, 50)
 	ellipse(width/2 + 6,height/1.2 + 65,12,12.5);
       break
     case 4:
+//body
+noStroke(0)
+fill(0); 
+ellipse(width/2 - 12.5, height/1.2 + 8.75, 18.75, 25)
+ellipse(width/2 + 12.5, height/1.2 + 8.75, 18.75, 25)
 
+ellipse(width/2, height/1.2, 37.5, 50)
+ellipse(width/2 - 5, height/1.2 + 12.5, 6.25, 25)
+
+//face
+fill(0)
+triangle(width/2 - 17.5, height/1.2 - 47.5, width/2 + 17.5, height/1.2 - 30, width/2 - 17.5, height/1.2 - 25);
+triangle(width/2 + 18.75, height/1.2 - 47.5, width/2, height/1.2 - 37.5, width/2 + 17.5,height/1.2 - 20);
+ellipse(width/2, height/1.2 - 22.5, 40, 37.5);
+ellipse(width/2 - 11.25,height/1.2 - 20,20,20);
+ellipse(width/2 + 11.25,height/1.2 - 20,20,20);
+	
+	ellipse(width/2,height/1.2 + 25,6,6.25);
+	ellipse(width/2,height/1.2 + 26,6,6.25);
+	ellipse(width/2 + 0.5,height/1.2 + 27.5,6,6.25);
+	ellipse(width/2 + 1,height/1.2 + 28.5,6,6.25);
+	ellipse(width/2 + 1.5,height/1.2 + 29.5,6,6.25);
+	ellipse(width/2 + 2,height/1.2 + 32,6,6.25);
+	ellipse(width/2 + 3,height/1.2 + 33.5,6,6.25);
       break
     case 5:
 
