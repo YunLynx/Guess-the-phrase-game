@@ -1197,7 +1197,31 @@ line(width/2 - 8.5,height/1.2 - 57.5,width/2 - 25,height/1.2 - 65);
 line(width/2 + 7,height/1.2 - 57.5,width/2 + 24,height/1.2 - 65);
       break
     case 3:
-      
+      //face
+      noStroke()
+      fill(0)
+triangle(width/2 - 35, height/1.2 - 95, width/2 + 35, height/1.2 - 60, width/2 - 35, height/1.2 - 50);
+triangle(width/2 + 37.5, height/1.2 - 95, width/2, height/1.2 - 75, width/2 + 35, height/1.2 - 40);
+ellipse(width/2, height/1.2 - 45, 80, 75);
+ellipse(width/2 - 22.5,height/1.2 - 40,40,40);
+ellipse(width/2 + 22.5,height/1.2 - 40,40,40);
+
+//body
+ellipse(width/2 -25, height/1.2 + 17.5, 37.5, 50)
+ellipse(width/2 + 25, height/1.2 + 17.5, 37.5, 50)
+
+ellipse(width/2, height/1.2, 75, 100)
+ellipse(width/2 - 10, height/1.2 + 25, 12.5, 50)
+ellipse(width/2 + 10, height/1.2 + 25, 12.5, 50)
+
+//tail
+	ellipse(width/2,height/1.2 + 50,12,12.5);
+	ellipse(width/2,height/1.2 + 52,12,12.5);
+	ellipse(width/2 + 1,height/1.2 + 55,12,12.5);
+	ellipse(width/2 + 2,height/1.2 + 57,12,12.5);
+	ellipse(width/2 + 3,height/1.2 + 59,12,12.5);
+	ellipse(width/2 + 4,height/1.2 + 62,12,12.5);
+	ellipse(width/2 + 6,height/1.2 + 65,12,12.5);
       break
     case 4:
 
