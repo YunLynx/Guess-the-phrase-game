@@ -1728,7 +1728,7 @@ backDrop()
   textAlign(CENTER)
   textSize(50)
   fill(0)
-  text("Guess The Phrase", width/2, height/3.5)
+  text("Word Game", width/2, height/3.5)
     
   player.update()
   player.render()
