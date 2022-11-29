@@ -292,7 +292,9 @@ rect(width/2, height/2, 600, 500)
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+	const width = 600
+	const height = 475
+  createCanvas(width, height);
   background(10, 10, 50);
   
 menu = 0
@@ -343,18 +345,20 @@ menu = 0
   restartGradeOnePs = new button (width/2 + 80, height/1.25, 120, 30, "Restart", 237, 126, 14, 0)
   
   //back button on 1 player, 2 players and instruction
-  back = new backButton (width/3.3, height/12, width/3.3, height/12 + 40, width/3.3 - 40, height/12 + 20, 237, 126, 14)
+  back = new backButton (width/7, height/12, width/7, height/12 + 40, width/7 - 40, height/12 + 20, 237, 126, 14)
 
   //home button on both easy, normal, hard stages of 1 player and 2 players
   home = new button (width/2 - 80, height/1.25, 120, 30, "Home", 237, 126, 14, 0)
 
     //face
-	face = new ball(width/1.45, height/1.15, 70, 247,250,72)
+	face = new ball(width/1.15, height/1.15, 70, 247,250,72)
+	face2 = new ball(width/1.15, height/1.15, 70, 62,77,130)
+	face3 = new ball(width/1.15, height/1.15, 70, 237,69,69)
 
   //left eye
-  leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
+  leftEye = new ball(width/1.15 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
   //right eye
-   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+   rightEye = new ball(width/1.15 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
 
   //snow on result of 1 player's grade 1 stage
   s = new snow(random(width/2 - 280, width/2 + 280), random(height/2 - 230, height/2 + 230), 2, 20, 255, 255, 255, 255)
@@ -398,20 +402,20 @@ menu = 0
    rightB4 = new rightBalloon(random(width/2 + 60, width/2 + 240), random(height/2 - 25, height/2 + 95), 40, 40, 2, random(100,500), random(100, 500), random(100, 500))
 
   //pig nose
-  rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
-  leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+  rightPig = new pigNose(width/2 + 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
+  leftPig = new pigNose(width/2 - 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
 
   //mustache
-  rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
-  leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
+  rightM = new mustache(width/2 + 150, height/2 + 170, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
+  leftM = new mustache(width/2 - 150, height/2 + 170, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
 
   //snot
-  leftSnot = new snot(width/2 - 144, height/2 + 210, 5, 25, 255,255,255,255)
-  rightSnot = new snot(width/2 + 152, height/2 + 210, 5, 25, 255,255,255,255)
+	 rightSnot = new snot(width/2 + 154, height/2 + 195, 5, 25, 255,255,255,255)
+  leftSnot = new snot(width/2 - 146, height/2 + 195, 5, 25, 255,255,255,255)
 
 //ice cream
-  leftI = new iceCream(width/2 - 195, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
-  rightI = new iceCream(width/2 + 98, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
+	  rightI = new iceCream(width/2 + 100, height/2 + 95, 25, 208, 139, 0, 254, 252, 207)
+  leftI = new iceCream(width/2 - 200, height/2 + 95, 25, 208, 139, 0, 254, 252, 207)
 }
 
 function resetVariables(){
@@ -444,14 +448,14 @@ HRh = 220
   	GLh = 220
 GRh = 220
 	
-	ELy = 513 - 130
-ERy = 513 - 130
-	NLy = 513 - 130
-NRy = 513 - 130
-	HLy = 513 - 130
-HRy = 513 - 130
-  	GLy = 513 - 130
-GRy = 513 - 130
+	ELy = height/2 + 110
+ERy = height/2 + 110
+	NLy = height/2 + 110
+NRy = height/2 + 110
+	HLy = height/2 + 110
+HRy = height/2 + 110
+  	GLy = height/2 + 110
+GRy = height/2 + 110
 
   //score variables
 	ELscore = 0
@@ -713,11 +717,8 @@ function easyOnePlayer(){
 	stroke(0)
 	fill(0)
 	textSize(25)
-	text('High Score: '+easyHighscore , width/3,height/12)  
+	text('High Score: '+easyHighscore , width/6,height/12)  
 
-  face.update()
-  leftEye.update()
-  rightEye.update()
 	showProgress()
 }
 
@@ -740,11 +741,8 @@ backDrop()
 	stroke(0)
 	fill(0)
 	textSize(25)
-	text('High Score: '+normalHighscore , width/3,height/12)  
+	text('High Score: '+normalHighscore , width/6,height/12)  
 
-  face.update()
-   leftEye.update()
-  rightEye.update()
 	showProgress()
 }
 
@@ -767,11 +765,8 @@ backDrop()
 	stroke(0)
 	fill(0)
 	textSize(25)
-	text('High Score: '+hardHighscore , width/3,height/12)  
+	text('High Score: '+hardHighscore , width/6,height/12)  
 
-  face.update()
-   leftEye.update()
-  rightEye.update()
 	showProgress()
 }
 
@@ -795,7 +790,7 @@ backDrop()
 	stroke(0)
 	fill(0)
 	textSize(25)
-	text('High Score: '+gradeOneHighscore , width/3,height/12)  
+	text('High Score: '+gradeOneHighscore , width/6,height/12)  
 
   showCat()
 }
@@ -804,28 +799,29 @@ function easyTwoPlayers(){
   backDrop()
   fill(0)
   //avatar on the left side
-	circle(width/2.65, ELy, ELr)
-arc(width/2.65,513,80,ELh,radians(180),radians(360))
+	circle(width/2 - 150, ELy, ELr)
+arc(width/2 - 150,height/2 + 240,80,ELh,radians(180),radians(360))
   //avatar on the right side
-  circle(width/1.6, ERy, ERr)
-arc(width/1.6,513,80,ERh,radians(180),radians(360))
+  circle(width/2 + 150, ERy, ERr)
+arc(width/2 + 150,height/2 + 240,80,ERh,radians(180),radians(360))
   //a line on the center
-  rect(width/2, height/1.24, 1, height/3)
+	rectMode(CORNER)
+  rect(width/2, height/1.5, 2, height/3)
 
   if(easyLeftTurn == true){
-    ELy = 513 - 130
+    ELy = height/2 + 110
     ELr = 50
     ELh = 220
     
-		ERy = 513 - 70
+		ERy = height/2 + 170
 		ERr = 40
 		ERh = 100
 	}else{
-    ERy = 513 - 130
+    ERy = height/2 + 110
 		ERr = 50
 		ERh = 220
 
-    ELy = 513 - 70
+    ELy = height/2 + 170
     ELr = 40
     ELh = 100
   }
@@ -835,28 +831,29 @@ function normalTwoPlayers(){
   backDrop()
   fill(0)
    //avatar on the left side
-	circle(width/2.65, NLy, NLr)
-arc(width/2.65,513,80,NLh,radians(180),radians(360))
+	circle(width/2 - 150, NLy, NLr)
+arc(width/2 - 150,height/2 + 240,80,NLh,radians(180),radians(360))
   //avatar on the right side
- circle(width/1.6, NRy, NRr)
-arc(width/1.6,513,80,NRh,radians(180),radians(360))
+ circle(width/2 + 150, NRy, NRr)
+arc(width/2 + 150,height/2 + 240,80,NRh,radians(180),radians(360))
    //a line on the center
-  rect(width/2, height/1.24, 1, height/3)
+ 	rectMode(CORNER)
+  rect(width/2, height/1.5, 2, height/3)
 
   if(normalLeftTurn == true){
-    NLy = 513 - 130
+    NLy = height/2 + 110
     NLr = 50
     NLh = 220
     
-		NRy = 513 - 70
+		NRy = height/2 + 170
 		NRr = 40
 		NRh = 100
 	}else{
-    NRy = 513 - 130
+    NRy = height/2 + 110
 		NRr = 50
 		NRh = 220
 
-    NLy = 513 - 70
+    NLy = height/2 + 170
     NLr = 40
     NLh = 100
   }
@@ -866,28 +863,29 @@ function hardTwoPlayers(){
   backDrop()
   fill(0)
   //avatar on the left side
-	circle(width/2.65, HLy, HLr)
-arc(width/2.65,513,80,HLh,radians(180),radians(360))
+	circle(width/2 - 150, HLy, HLr)
+arc(width/2 - 150,height/2 + 240,80,HLh,radians(180),radians(360))
   //avatar on the right side
-  circle(width/1.6, HRy, HRr)
-arc(width/1.6,513,80,HRh,radians(180),radians(360))
+  circle(width/2 + 150, HRy, HRr)
+arc(width/2 + 150,height/2 + 240,80,HRh,radians(180),radians(360))
    //a line on the center
-  rect(width/2, height/1.24, 1, height/3)
+  	rectMode(CORNER)
+  rect(width/2, height/1.5, 2, height/3)
 
   if(hardLeftTurn == true){
-    HLy = 513 - 130
+    HLy = height/2 + 110
     HLr = 50
     HLh = 220
     
-		HRy = 513 - 70
+		HRy = height/2 + 170
 		HRr = 40
 		HRh = 100
 	}else{
-    HRy = 513 - 130
+    HRy = height/2 + 110
 		HRr = 50
 		HRh = 220
 
-    HLy = 513 - 70
+    HLy = height/2 + 170
     HLr = 40
     HLh = 100
   }
@@ -897,28 +895,29 @@ function gradeOnePs(){
   backDrop()
   fill(0)
   //avatar on the left side
-	circle(width/2 - 148, GLy, GLr)
-arc(width/2 - 148,513,80,GLh,radians(180),radians(360))
+	circle(width/2 - 150, GLy, GLr)
+arc(width/2 - 150,height/2 + 240,80,GLh,radians(180),radians(360))
   //avatar on the right side
-  circle(width/2 + 148, GRy, GRr)
-arc(width/2 + 148,513,80,GRh,radians(180),radians(360))
+  circle(width/2 + 150, GRy, GRr)
+arc(width/2 + 150,height/2 + 240,80,GRh,radians(180),radians(360))
   //a line on the center
-  rect(width/2, height/1.24, 1, height/3)
+  	rectMode(CORNER)
+  rect(width/2, height/1.5, 2, height/3)
 
   if(gradeOneLeftTurn == true){
-    GLy = 513 - 130
+    GLy = height/2 + 110
     GLr = 50
     GLh = 220
     
-		GRy = 513 - 70
+		GRy = height/2 + 170
 		GRr = 40
 		GRh = 100
 	}else{
-    GRy = 513 - 130
+    GRy = height/2 + 110
 		GRr = 50
 		GRh = 220
 
-    GLy = 513 - 70
+    GLy = height/2 + 170
     GLr = 40
     GLh = 100
   }
@@ -930,32 +929,32 @@ arc(width/2 + 148,513,80,GRh,radians(180),radians(360))
 function showProgress(){
 		switch(f){
 			case 0:	
-				face = new ball(width/1.45, height/1.15, 70, 247,250,72)
-        leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
-   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+				 face.update()
+  leftEye.update()
+  rightEye.update()
         noFill()
-        bezier(width/1.45 - 12, height/1.15 + 10,width/1.45 - 2, height/1.15 + 20,width/1.45 + 2,height/1.15 + 20,width/1.45 + 12, height/1.15 + 10)
+        bezier(width/1.15 - 12, height/1.15 + 10,width/1.15 - 2, height/1.15 + 20,width/1.15 + 2,height/1.15 + 20,width/1.15 + 12, height/1.15 + 10)
 				break
 			case 1:
-				face = new ball(width/1.45, height/1.15, 70, 247,250,72)
-        leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
-   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+				face.update()
+				leftEye.update()
+        rightEye.update()
         fill(0)
-        rect(width/1.45, height/1.15 + 12, 30, 2)
+        rect(width/1.15, height/1.15 + 12, 30, 2)
 				break
 			case 2:
-				face = new ball(width/1.45, height/1.15, 70, 62,77,130)
-        leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
-   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+				face2.update()
+        leftEye.update()
+        rightEye.update()
         fill(0)
-        rect(width/1.45, height/1.15 + 12, 30, 2)
+        rect(width/1.15, height/1.15 + 12, 30, 2)
 				break
 			case 3:
-				face = new ball(width/1.45, height/1.15, 70, 237,69,69)
-        leftEye = new ball(width/1.45 - 12, height/1.15 - 10, 70 / 7, 0,0,0)
-   rightEye = new ball(width/1.45 + 12, height/1.15 - 10, 70 / 7, 0,0,0)
+				face3.update()
+        leftEye.update()
+        rightEye.update()
         noFill()
-        bezier(width/1.45 - 12, height/1.15 + 20,width/1.45 - 2, height/1.15 + 10,width/1.45 + 2,height/1.15 + 10,width/1.45 + 12, height/1.15 + 20)
+        bezier(width/1.15 - 12, height/1.15 + 20,width/1.15 - 2, height/1.15 + 10,width/1.15 + 2,height/1.15 + 10,width/1.15 + 12, height/1.15 + 20)
 				break
 		}
 }
@@ -1264,9 +1263,9 @@ switch(Ld){
   leftPig.update()
     
     if(gradeOneLeftTurn == true){
-  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+  leftPig = new pigNose(width/2 - 150, height/2 + 110, 3, 15, 10, 255,255,255,0)
     }else{
-       leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+       leftPig = new pigNose(width/2 - 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
     }
    break
   case 2:
@@ -1274,11 +1273,11 @@ leftPig.update()
     leftM.update()
     
     if(gradeOneLeftTurn == true){
-  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
-      leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+  leftPig = new pigNose(width/2 - 150, height/2 + 110, 3, 15, 10, 255,255,255,0)
+      leftM = new mustache(width/2 - 150, height/2 + 110, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
     }else{
-       leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
-       leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
+       leftPig = new pigNose(width/2 - 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
+       leftM = new mustache(width/2 - 150, height/2 + 170, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
     }
    break
   case 3:
@@ -1287,13 +1286,13 @@ leftPig.update()
     leftSnot.update()
     
     if(gradeOneLeftTurn == true){
-  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
-      leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
-      leftSnot = new snot(width/2 - 144, height/2 + 145, 5, 25, 255,255,255,255)
+  leftPig = new pigNose(width/2 - 150, height/2 + 110, 3, 15, 10, 255,255,255,0)
+      leftM = new mustache(width/2 - 150, height/2 + 110, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+      leftSnot = new snot(width/2 - 146, height/2 + 135, 5, 25, 255,255,255,255)
     }else{
-      leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
-       leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
-       leftSnot = new snot(width/2 - 144, height/2 + 210, 5, 25, 255,255,255,255)
+      leftPig = new pigNose(width/2 - 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
+       leftM = new mustache(width/2 - 150, height/2 + 170, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
+       leftSnot = new snot(width/2 - 146, height/2 + 195, 5, 25, 255,255,255,255)
     }
     break
   case 4:
@@ -1303,15 +1302,15 @@ leftPig.update()
     leftI.update()
     
     if(gradeOneLeftTurn == true){
-  leftPig = new pigNose(width/2 - 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
-      leftM = new mustache(width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
-      leftSnot = new snot(width/2 - 144, height/2 + 145, 5, 25, 255,255,255,255)
-      leftI = new iceCream(width/2 - 195, height/2 + 50, 25, 208, 139, 0, 254, 252, 207)
+  leftPig = new pigNose(width/2 - 150, height/2 + 110, 3, 15, 10, 255,255,255,0)
+      leftM = new mustache(width/2 - 150, height/2 + 110, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, width/2 - 148, height/2 + 120, 255,255,255,255)
+      leftSnot = new snot(width/2 - 146, height/2 + 135, 5, 25, 255,255,255,255)
+      leftI = new iceCream(width/2 - 200, height/2 + 40, 25, 208, 139, 0, 254, 252, 207)
     }else{
-      leftPig = new pigNose(width/2 - 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
-       leftM = new mustache(width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
-      leftSnot = new snot(width/2 - 144, height/2 + 210, 5, 25, 255,255,255,255)
-       leftI = new iceCream(width/2 - 195, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
+      leftPig = new pigNose(width/2 - 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
+       leftM = new mustache(width/2 - 150, height/2 + 170, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, width/2 - 148, height/2 + 185, 255,255,255,255)
+      leftSnot = new snot(width/2 - 146, height/2 + 195, 5, 25, 255,255,255,255)
+       leftI = new iceCream(width/2 - 200, height/2 + 95, 25, 208, 139, 0, 254, 252, 207)
     }
     break
 }
@@ -1326,9 +1325,9 @@ switch(Rd){
    rightPig.update()
     
     if(gradeOneLeftTurn == false){
-       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
+       rightPig = new pigNose(width/2 + 150, height/2 + 110, 3, 15, 10, 255,255,255,0)
     }else{
-      rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
+      rightPig = new pigNose(width/2 + 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
     }
    break
   case 2:
@@ -1336,11 +1335,11 @@ switch(Rd){
     rightM.update()
     
     if(gradeOneLeftTurn == false){
-       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
-      rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+       rightPig = new pigNose(width/2 + 150, height/2 + 110, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 150, height/2 + 110, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
     }else{
-      rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
-      rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
+      rightPig = new pigNose(width/2 + 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 150, height/2 + 170, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
     }
    break
   case 3:
@@ -1349,13 +1348,13 @@ switch(Rd){
     rightSnot.update()
     
     if(gradeOneLeftTurn == false){
-       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
-      rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
-      rightSnot = new snot(width/2 + 152, height/2 + 145, 5, 25, 255,255,255,255)
+       rightPig = new pigNose(width/2 + 150, height/2 + 110, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 150, height/2 + 110, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+      rightSnot = new snot(width/2 + 154, height/2 + 135, 5, 25, 255,255,255,255)
     }else{
-       rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
-      rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
-       rightSnot = new snot(width/2 + 152, height/2 + 210, 5, 25, 255,255,255,255)
+       rightPig = new pigNose(width/2 + 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 150, height/2 + 170, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
+       rightSnot = new snot(width/2 + 154, height/2 + 195, 5, 25, 255,255,255,255)
     }
     break
   case 4:
@@ -1365,15 +1364,15 @@ switch(Rd){
     rightI.update()
     
     if(gradeOneLeftTurn == false){
-       rightPig = new pigNose(width/2 + 148, height/2 + 120, 3, 15, 10, 255,255,255,0)
-      rightM = new mustache(width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
-      rightSnot = new snot(width/2 + 152, height/2 + 145, 5, 25, 255,255,255,255)
-      rightI = new iceCream(width/2 + 98, height/2 + 50, 25, 208, 139, 0, 254, 252, 207)
+       rightPig = new pigNose(width/2 + 150, height/2 + 110, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 150, height/2 + 110, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, width/2 + 148, height/2 + 120, 255,255,255,255)
+      rightSnot = new snot(width/2 + 154, height/2 + 135, 5, 25, 255,255,255,255)
+      rightI = new iceCream(width/2 + 100, height/2 + 40, 25, 208, 139, 0, 254, 252, 207)
     }else{
-      rightPig = new pigNose(width/2 + 148, height/2 + 185, 3, 15, 10, 255,255,255,0)
-      rightM = new mustache(width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
-       rightSnot = new snot(width/2 + 152, height/2 + 210, 5, 25, 255,255,255,255)
-      rightI = new iceCream(width/2 + 98, height/2 + 110, 25, 208, 139, 0, 254, 252, 207)
+      rightPig = new pigNose(width/2 + 150, height/2 + 170, 3, 15, 10, 255,255,255,0)
+      rightM = new mustache(width/2 + 150, height/2 + 170, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, width/2 + 148, height/2 + 185, 255,255,255,255)
+       rightSnot = new snot(width/2 + 154, height/2 + 195, 5, 25, 255,255,255,255)
+      rightI = new iceCream(width/2 + 100, height/2 + 95, 25, 208, 139, 0, 254, 252, 207)
     }
     break
 }
@@ -1853,8 +1852,8 @@ backDrop()
 
       textAlign(LEFT)
       textSize(15)
-      text("[Spacebar] pause",width/1.56, height/14)
-      text("[Backspace] quit", width/1.56, height/14 + 20)
+      text("[Spacebar] pause",width/1.4, height/14)
+      text("[Backspace] quit", width/1.4, height/14 + 20)
       
       back.update()
       back.render()
